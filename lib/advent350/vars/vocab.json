@@ -1,0 +1,1208 @@
+{
+  "vocab": [
+    {
+      "word": "spelunker today",
+      "code": 1016
+    },
+    {
+      "word": "?",
+      "code": 3051
+    },
+    {
+      "word": "above",
+      "code": 29
+    },
+    {
+      "word": "abra",
+      "code": 3050
+    },
+    {
+      "word": "abracadabra",
+      "code": 3050
+    },
+    {
+      "word": "across",
+      "code": 42
+    },
+    {
+      "word": "ascend",
+      "code": 29
+    },
+    {
+      "word": "attack",
+      "code": 2012
+    },
+    {
+      "word": "awkward",
+      "code": 26
+    },
+    {
+      "word": "axe",
+      "code": 1028
+    },
+    {
+      "word": "back",
+      "code": 8
+    },
+    {
+      "word": "barren",
+      "code": 40
+    },
+    {
+      "word": "bars",
+      "code": 1052
+    },
+    {
+      "word": "batteries",
+      "code": 1039
+    },
+    {
+      "word": "battery",
+      "code": 1039
+    },
+    {
+      "word": "beans",
+      "code": 1024
+    },
+    {
+      "word": "bear",
+      "code": 1035
+    },
+    {
+      "word": "bed",
+      "code": 16
+    },
+    {
+      "word": "bedquilt",
+      "code": 70
+    },
+    {
+      "word": "bird",
+      "code": 1008
+    },
+    {
+      "word": "blast",
+      "code": 2023
+    },
+    {
+      "word": "blowup",
+      "code": 2023
+    },
+    {
+      "word": "bottle",
+      "code": 1020
+    },
+    {
+      "word": "box",
+      "code": 1055
+    },
+    {
+      "word": "break",
+      "code": 2028
+    },
+    {
+      "word": "brief",
+      "code": 2026
+    },
+    {
+      "word": "broken",
+      "code": 54
+    },
+    {
+      "word": "building",
+      "code": 12
+    },
+    {
+      "word": "cage",
+      "code": 1004
+    },
+    {
+      "word": "calm",
+      "code": 2010
+    },
+    {
+      "word": "canyon",
+      "code": 25
+    },
+    {
+      "word": "capture",
+      "code": 2001
+    },
+    {
+      "word": "carpet",
+      "code": 1040
+    },
+    {
+      "word": "carry",
+      "code": 2001
+    },
+    {
+      "word": "catch",
+      "code": 2001
+    },
+    {
+      "word": "cave",
+      "code": 67
+    },
+    {
+      "word": "cavern",
+      "code": 73
+    },
+    {
+      "word": "chain",
+      "code": 1064
+    },
+    {
+      "word": "chant",
+      "code": 2003
+    },
+    {
+      "word": "chasm",
+      "code": 1032
+    },
+    {
+      "word": "chest",
+      "code": 1055
+    },
+    {
+      "word": "clam",
+      "code": 1014
+    },
+    {
+      "word": "climb",
+      "code": 56
+    },
+    {
+      "word": "close",
+      "code": 2006
+    },
+    {
+      "word": "cobblestone",
+      "code": 18
+    },
+    {
+      "word": "coins",
+      "code": 1054
+    },
+    {
+      "word": "continue",
+      "code": 2011
+    },
+    {
+      "word": "crack",
+      "code": 33
+    },
+    {
+      "word": "crap",
+      "code": 3079
+    },
+    {
+      "word": "crawl",
+      "code": 17
+    },
+    {
+      "word": "cross",
+      "code": 69
+    },
+    {
+      "word": "d",
+      "code": 30
+    },
+    {
+      "word": "damn",
+      "code": 3079
+    },
+    {
+      "word": "damnit",
+      "code": 3079
+    },
+    {
+      "word": "dark",
+      "code": 22
+    },
+    {
+      "word": "debris",
+      "code": 51
+    },
+    {
+      "word": "depression",
+      "code": 63
+    },
+    {
+      "word": "descend",
+      "code": 30
+    },
+    {
+      "word": "describe",
+      "code": 57
+    },
+    {
+      "word": "detonate",
+      "code": 2023
+    },
+    {
+      "word": "devour",
+      "code": 2014
+    },
+    {
+      "word": "diamonds",
+      "code": 1051
+    },
+    {
+      "word": "dig",
+      "code": 3066
+    },
+    {
+      "word": "discard",
+      "code": 2002
+    },
+    {
+      "word": "disturb",
+      "code": 2029
+    },
+    {
+      "word": "dome",
+      "code": 35
+    },
+    {
+      "word": "door",
+      "code": 1009
+    },
+    {
+      "word": "down",
+      "code": 30
+    },
+    {
+      "word": "downstream",
+      "code": 5
+    },
+    {
+      "word": "downward",
+      "code": 30
+    },
+    {
+      "word": "dragon",
+      "code": 1031
+    },
+    {
+      "word": "drawing",
+      "code": 1029
+    },
+    {
+      "word": "drink",
+      "code": 2015
+    },
+    {
+      "word": "drop",
+      "code": 2002
+    },
+    {
+      "word": "dump",
+      "code": 2002
+    },
+    {
+      "word": "dwarf",
+      "code": 1017
+    },
+    {
+      "word": "dwarves",
+      "code": 1017
+    },
+    {
+      "word": "e",
+      "code": 43
+    },
+    {
+      "word": "east",
+      "code": 43
+    },
+    {
+      "word": "eat",
+      "code": 2014
+    },
+    {
+      "word": "egg",
+      "code": 1056
+    },
+    {
+      "word": "eggs",
+      "code": 1056
+    },
+    {
+      "word": "emerald",
+      "code": 1059
+    },
+    {
+      "word": "enter",
+      "code": 3
+    },
+    {
+      "word": "entrance",
+      "code": 64
+    },
+    {
+      "word": "examine",
+      "code": 57
+    },
+    {
+      "word": "excavate",
+      "code": 3066
+    },
+    {
+      "word": "exit",
+      "code": 11
+    },
+    {
+      "word": "explore",
+      "code": 2011
+    },
+    {
+      "word": "extinguish",
+      "code": 2008
+    },
+    {
+      "word": "fee",
+      "code": 2025
+    },
+    {
+      "word": "fee",
+      "code": 3001
+    },
+    {
+      "word": "feed",
+      "code": 2021
+    },
+    {
+      "word": "fie",
+      "code": 2025
+    },
+    {
+      "word": "fie",
+      "code": 3002
+    },
+    {
+      "word": "fight",
+      "code": 2012
+    },
+    {
+      "word": "figure",
+      "code": 1027
+    },
+    {
+      "word": "fill",
+      "code": 2022
+    },
+    {
+      "word": "find",
+      "code": 2019
+    },
+    {
+      "word": "fissure",
+      "code": 1012
+    },
+    {
+      "word": "floor",
+      "code": 58
+    },
+    {
+      "word": "foe",
+      "code": 2025
+    },
+    {
+      "word": "foe",
+      "code": 3003
+    },
+    {
+      "word": "follow",
+      "code": 2011
+    },
+    {
+      "word": "foo",
+      "code": 2025
+    },
+    {
+      "word": "foo",
+      "code": 3004
+    },
+    {
+      "word": "food",
+      "code": 1019
+    },
+    {
+      "word": "forest",
+      "code": 6
+    },
+    {
+      "word": "fork",
+      "code": 77
+    },
+    {
+      "word": "forward",
+      "code": 7
+    },
+    {
+      "word": "free",
+      "code": 2002
+    },
+    {
+      "word": "fuck",
+      "code": 3079
+    },
+    {
+      "word": "fum",
+      "code": 2025
+    },
+    {
+      "word": "fum",
+      "code": 3005
+    },
+    {
+      "word": "get",
+      "code": 2001
+    },
+    {
+      "word": "geyser",
+      "code": 1037
+    },
+    {
+      "word": "giant",
+      "code": 27
+    },
+    {
+      "word": "go",
+      "code": 2011
+    },
+    {
+      "word": "gold",
+      "code": 1050
+    },
+    {
+      "word": "goto",
+      "code": 2011
+    },
+    {
+      "word": "grate",
+      "code": 1003
+    },
+    {
+      "word": "gully",
+      "code": 13
+    },
+    {
+      "word": "h2o",
+      "code": 1021
+    },
+    {
+      "word": "hall",
+      "code": 38
+    },
+    {
+      "word": "headlamp",
+      "code": 1002
+    },
+    {
+      "word": "help",
+      "code": 3051
+    },
+    {
+      "word": "hill",
+      "code": 2
+    },
+    {
+      "word": "hit",
+      "code": 2012
+    },
+    {
+      "word": "hocus",
+      "code": 3050
+    },
+    {
+      "word": "hole",
+      "code": 52
+    },
+    {
+      "word": "hours",
+      "code": 2031
+    },
+    {
+      "word": "house",
+      "code": 12
+    },
+    {
+      "word": "ignite",
+      "code": 2023
+    },
+    {
+      "word": "in",
+      "code": 19
+    },
+    {
+      "word": "info",
+      "code": 3142
+    },
+    {
+      "word": "information",
+      "code": 3142
+    },
+    {
+      "word": "inside",
+      "code": 19
+    },
+    {
+      "word": "inventory",
+      "code": 2020
+    },
+    {
+      "word": "inward",
+      "code": 19
+    },
+    {
+      "word": "issue",
+      "code": 1016
+    },
+    {
+      "word": "jar",
+      "code": 1020
+    },
+    {
+      "word": "jewel",
+      "code": 1053
+    },
+    {
+      "word": "jewelry",
+      "code": 1053
+    },
+    {
+      "word": "jewels",
+      "code": 1053
+    },
+    {
+      "word": "jump",
+      "code": 39
+    },
+    {
+      "word": "keep",
+      "code": 2001
+    },
+    {
+      "word": "key",
+      "code": 1001
+    },
+    {
+      "word": "keys",
+      "code": 1001
+    },
+    {
+      "word": "kill",
+      "code": 2012
+    },
+    {
+      "word": "knife",
+      "code": 1018
+    },
+    {
+      "word": "knives",
+      "code": 1018
+    },
+    {
+      "word": "lamp",
+      "code": 1002
+    },
+    {
+      "word": "lantern",
+      "code": 1002
+    },
+    {
+      "word": "leave",
+      "code": 11
+    },
+    {
+      "word": "left",
+      "code": 36
+    },
+    {
+      "word": "light",
+      "code": 2007
+    },
+    {
+      "word": "lock",
+      "code": 2006
+    },
+    {
+      "word": "log",
+      "code": 2032
+    },
+    {
+      "word": "look",
+      "code": 57
+    },
+    {
+      "word": "lost",
+      "code": 3068
+    },
+    {
+      "word": "low",
+      "code": 24
+    },
+    {
+      "word": "machine",
+      "code": 1038
+    },
+    {
+      "word": "magazine",
+      "code": 1016
+    },
+    {
+      "word": "main",
+      "code": 76
+    },
+    {
+      "word": "message",
+      "code": 1036
+    },
+    {
+      "word": "ming",
+      "code": 1058
+    },
+    {
+      "word": "mirror",
+      "code": 1023
+    },
+    {
+      "word": "mist",
+      "code": 3069
+    },
+    {
+      "word": "moss",
+      "code": 1040
+    },
+    {
+      "word": "mumble",
+      "code": 2003
+    },
+    {
+      "word": "n",
+      "code": 45
+    },
+    {
+      "word": "ne",
+      "code": 47
+    },
+    {
+      "word": "nest",
+      "code": 1056
+    },
+    {
+      "word": "north",
+      "code": 45
+    },
+    {
+      "word": "nothing",
+      "code": 2005
+    },
+    {
+      "word": "nowhere",
+      "code": 21
+    },
+    {
+      "word": "nugget",
+      "code": 1050
+    },
+    {
+      "word": "null",
+      "code": 21
+    },
+    {
+      "word": "nw",
+      "code": 50
+    },
+    {
+      "word": "off",
+      "code": 2008
+    },
+    {
+      "word": "office",
+      "code": 76
+    },
+    {
+      "word": "oil",
+      "code": 1022
+    },
+    {
+      "word": "on",
+      "code": 2007
+    },
+    {
+      "word": "onward",
+      "code": 7
+    },
+    {
+      "word": "open",
+      "code": 2004
+    },
+    {
+      "word": "opensesame",
+      "code": 3050
+    },
+    {
+      "word": "oriental",
+      "code": 72
+    },
+    {
+      "word": "out",
+      "code": 11
+    },
+    {
+      "word": "outdoors",
+      "code": 32
+    },
+    {
+      "word": "outside",
+      "code": 11
+    },
+    {
+      "word": "over",
+      "code": 41
+    },
+    {
+      "word": "oyster",
+      "code": 1015
+    },
+    {
+      "word": "passage",
+      "code": 23
+    },
+    {
+      "word": "pause",
+      "code": 2030
+    },
+    {
+      "word": "pearl",
+      "code": 1061
+    },
+    {
+      "word": "persian",
+      "code": 1062
+    },
+    {
+      "word": "peruse",
+      "code": 2027
+    },
+    {
+      "word": "pillow",
+      "code": 1010
+    },
+    {
+      "word": "pirate",
+      "code": 1030
+    },
+    {
+      "word": "pit",
+      "code": 31
+    },
+    {
+      "word": "placate",
+      "code": 2010
+    },
+    {
+      "word": "plant",
+      "code": 1024
+    },
+    {
+      "word": "plant",
+      "code": 1025
+    },
+    {
+      "word": "platinum",
+      "code": 1060
+    },
+    {
+      "word": "plover",
+      "code": 71
+    },
+    {
+      "word": "plugh",
+      "code": 65
+    },
+    {
+      "word": "pocus",
+      "code": 3050
+    },
+    {
+      "word": "pottery",
+      "code": 1058
+    },
+    {
+      "word": "pour",
+      "code": 2013
+    },
+    {
+      "word": "proceed",
+      "code": 2011
+    },
+    {
+      "word": "pyramid",
+      "code": 1060
+    },
+    {
+      "word": "quit",
+      "code": 2018
+    },
+    {
+      "word": "rations",
+      "code": 1019
+    },
+    {
+      "word": "read",
+      "code": 2027
+    },
+    {
+      "word": "release",
+      "code": 2002
+    },
+    {
+      "word": "reservoir",
+      "code": 75
+    },
+    {
+      "word": "retreat",
+      "code": 8
+    },
+    {
+      "word": "return",
+      "code": 8
+    },
+    {
+      "word": "right",
+      "code": 37
+    },
+    {
+      "word": "road",
+      "code": 2
+    },
+    {
+      "word": "rock",
+      "code": 15
+    },
+    {
+      "word": "rod",
+      "code": 1005
+    },
+    {
+      "word": "rod",
+      "code": 1006
+    },
+    {
+      "word": "room",
+      "code": 59
+    },
+    {
+      "word": "rub",
+      "code": 2016
+    },
+    {
+      "word": "rug",
+      "code": 1062
+    },
+    {
+      "word": "run",
+      "code": 2011
+    },
+    {
+      "word": "s",
+      "code": 46
+    },
+    {
+      "word": "save",
+      "code": 2030
+    },
+    {
+      "word": "say",
+      "code": 2003
+    },
+    {
+      "word": "score",
+      "code": 2024
+    },
+    {
+      "word": "se",
+      "code": 48
+    },
+    {
+      "word": "secret",
+      "code": 66
+    },
+    {
+      "word": "sesame",
+      "code": 3050
+    },
+    {
+      "word": "shadow",
+      "code": 1027
+    },
+    {
+      "word": "shake",
+      "code": 2009
+    },
+    {
+      "word": "shard",
+      "code": 1058
+    },
+    {
+      "word": "shatter",
+      "code": 2028
+    },
+    {
+      "word": "shazam",
+      "code": 3050
+    },
+    {
+      "word": "shell",
+      "code": 74
+    },
+    {
+      "word": "shit",
+      "code": 3079
+    },
+    {
+      "word": "silver",
+      "code": 1052
+    },
+    {
+      "word": "sing",
+      "code": 2003
+    },
+    {
+      "word": "slab",
+      "code": 61
+    },
+    {
+      "word": "slit",
+      "code": 60
+    },
+    {
+      "word": "smash",
+      "code": 2028
+    },
+    {
+      "word": "snake",
+      "code": 1011
+    },
+    {
+      "word": "south",
+      "code": 46
+    },
+    {
+      "word": "spelunker",
+      "code": 1016
+    },
+    {
+      "word": "spice",
+      "code": 1063
+    },
+    {
+      "word": "spices",
+      "code": 1063
+    },
+    {
+      "word": "stairs",
+      "code": 10
+    },
+    {
+      "word": "stalactite",
+      "code": 1026
+    },
+    {
+      "word": "steal",
+      "code": 2001
+    },
+    {
+      "word": "steps",
+      "code": 1007
+    },
+    {
+      "word": "steps",
+      "code": 34
+    },
+    {
+      "word": "stop",
+      "code": 3139
+    },
+    {
+      "word": "stream",
+      "code": 14
+    },
+    {
+      "word": "strike",
+      "code": 2012
+    },
+    {
+      "word": "surface",
+      "code": 20
+    },
+    {
+      "word": "suspend",
+      "code": 2030
+    },
+    {
+      "word": "sw",
+      "code": 49
+    },
+    {
+      "word": "swim",
+      "code": 3147
+    },
+    {
+      "word": "swing",
+      "code": 2009
+    },
+    {
+      "word": "tablet",
+      "code": 1013
+    },
+    {
+      "word": "take",
+      "code": 2001
+    },
+    {
+      "word": "tame",
+      "code": 2010
+    },
+    {
+      "word": "throw",
+      "code": 2017
+    },
+    {
+      "word": "toss",
+      "code": 2017
+    },
+    {
+      "word": "tote",
+      "code": 2001
+    },
+    {
+      "word": "touch",
+      "code": 57
+    },
+    {
+      "word": "travel",
+      "code": 2011
+    },
+    {
+      "word": "treasure",
+      "code": 1055
+    },
+    {
+      "word": "tree",
+      "code": 3064
+    },
+    {
+      "word": "trees",
+      "code": 3064
+    },
+    {
+      "word": "trident",
+      "code": 1057
+    },
+    {
+      "word": "troll",
+      "code": 1033
+    },
+    {
+      "word": "troll",
+      "code": 1034
+    },
+    {
+      "word": "tunnel",
+      "code": 23
+    },
+    {
+      "word": "turn",
+      "code": 2011
+    },
+    {
+      "word": "u",
+      "code": 29
+    },
+    {
+      "word": "unlock",
+      "code": 2004
+    },
+    {
+      "word": "up",
+      "code": 29
+    },
+    {
+      "word": "upstream",
+      "code": 4
+    },
+    {
+      "word": "upward",
+      "code": 29
+    },
+    {
+      "word": "utter",
+      "code": 2003
+    },
+    {
+      "word": "valley",
+      "code": 9
+    },
+    {
+      "word": "vase",
+      "code": 1058
+    },
+    {
+      "word": "velvet",
+      "code": 1010
+    },
+    {
+      "word": "vending",
+      "code": 1038
+    },
+    {
+      "word": "view",
+      "code": 28
+    },
+    {
+      "word": "volcano",
+      "code": 1037
+    },
+    {
+      "word": "w",
+      "code": 44
+    },
+    {
+      "word": "wake",
+      "code": 2029
+    },
+    {
+      "word": "walk",
+      "code": 2011
+    },
+    {
+      "word": "wall",
+      "code": 53
+    },
+    {
+      "word": "water",
+      "code": 1021
+    },
+    {
+      "word": "wave",
+      "code": 2009
+    },
+    {
+      "word": "west",
+      "code": 44
+    },
+    {
+      "word": "xyzzy",
+      "code": 62
+    },
+    {
+      "word": "y2",
+      "code": 55
+    }
+  ]
+}
