@@ -17,3 +17,15 @@ rules:
   semi:
     - error
     - always
+  eqeqeq:
+    - error
+    - always
+  no-else-return:
+    - error
+  brace-style:
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  curly:
+    - error
+    - all
