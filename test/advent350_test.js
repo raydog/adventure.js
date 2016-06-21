@@ -49,6 +49,11 @@ describe("Adventure 350", function () {
       _test("building", /inside a building/i);
     });
 
+    it("can ask for help", function () {
+      _test("help", /i know of places, actions, and things/i);
+      _test("? ?", /calm/i, /devour/i, /peruse/i, /north/i, /building/i, /giant/i);
+    });
+
     it("can say stuff", function () {
       _test("say Hello World!", /Hello World!/);
     });
@@ -79,6 +84,7 @@ describe("Adventure 350", function () {
     it("has flavor text for odd stuff", function () {
       _test("calm keys", /no keys here/i);
       _test("building", /inside a building/i);
+      _test("downstream", /sewer pipes/i, /use the exit/i);
       _test("calm keys", /care to explain how/i);
       _test("walk food", /where/i);
       _test("quit food", /don't understand/i);
@@ -193,6 +199,7 @@ describe("Adventure 350", function () {
     it("can unlock the grate", _upTo(1));
     it("can go down the pit", _upTo(2));
     it("can bring back diamonds", _upTo(3));
+    it("can drive back the snake", _upTo(4));
 
 
     function _upTo(num) {
@@ -241,6 +248,30 @@ describe("Adventure 350", function () {
         _test("east", /debris room/i);
         _test("xyzzy", /inside building/i);
         _test("drop diamonds", /ok/i);
+        _test("score", /showing up: 2/i, /treasures: 12/i, /getting well in: 25/i, /score: 39/i);
+      },
+      function () {
+        _test("drop rod", /ok/);
+        _test("xyzzy", /debris room/i);
+        _test("west", /east\/west canyon/i);
+        _test("west", /bird chamber/i);
+        _test("west", /small pit/i, /rough stone steps lead down/i);
+        _test("down", /hall of mists/i, /rough stone steps lead up/i);
+        _test("south", /low room/i, /won't get it up the steps/i, /nugget of gold/i);
+        _test("take nugget", /ok/i);
+        _test("north", /hall of mists/i);
+        _test("up", /dome is unclimbable/i);
+        _test("n", /hall of the mountain king/i, /green fierce snake/i);
+        _test("drop bird", /drives the snake away/i);
+        _test("take bird", /ok/i);
+        _test("n", /low N\/S passage/i, /bars of silver/i);
+        _test("take silver", /ok/);
+        _test("north", /large room/i, /y2/i);
+        _test("look", /large room/i, /y2/i, /hollow voice/);
+        _test("plugh", /inside building/i, /black rod/i, /tasty food/i, /bottle of water/i, /diamonds/i);
+        _test("drop nugget", /ok/i);
+        _test("drop silver", /ok/i);
+        _test("score", /showing up: 2/i, /treasures: 36/i, /getting well in: 25/i, /score: 63/i);
       }
     ];
   });
