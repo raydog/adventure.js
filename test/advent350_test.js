@@ -12,6 +12,11 @@ describe("Adventure 350", function () {
     game = adv.state();
   });
 
+  it("rejects bad states", function () {
+    game.state = "asdfasdf";
+    _test("derp", /fatal error/i, /invalid state/i, /asdfasdf/i);
+  });
+
   describe("during startup", function () {
     it("retries on bad input", function () {
       _test("", /welcome to adventure/i);
@@ -58,6 +63,16 @@ describe("Adventure 350", function () {
       _test("say Hello World!", /Hello World!/);
     });
 
+    it("can quit", function () {
+      _test("quit", /really want to quit/i);
+      _test("n", /ok/i);
+      assert(!game.isDone());
+      _test("quit", /really want to quit/i);
+      _test("y", /game over/i, /score: 2/i);
+      assert(game.isDone());
+      assert.deepEqual(game.advance("building"), []);
+    });
+
     it("can take items", function () {
       _test("building", /inside a building/i);
       _test("take keys", /ok/i);
@@ -79,6 +94,7 @@ describe("Adventure 350", function () {
 
     it("can drink from the stream", function () {
       _test("drink", /taken a drink/i);
+      _test("drink water", /taken a drink/i);
     });
 
     it("has flavor text for odd stuff", function () {
@@ -97,6 +113,7 @@ describe("Adventure 350", function () {
       _test("rub lamp", /not particularly rewarding/i);
       _test("rub keys", /nothing unexpected happens/i);
       _test("log", /intransitive verb not implemented/i);
+      _test("drop", /drop what/i);
       _test("nothing", /ok/i);
       _test("nothing keys", /ok/i);
       _test("eat bird", /no bird here/i);
@@ -146,6 +163,65 @@ describe("Adventure 350", function () {
     });
   });
 
+  describe("when stumbling in the dark", function () {
+    beforeEach(function () {
+      _test("", /welcome to adventure/i);
+      _test("no", /standing at the end of a road/i);
+    });
+
+    it("can die and give up", function () {
+      _test("building", /inside a building/i);
+      _test("xyzzy", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /fell into a pit/i, /try to reincarnate you/i);
+      _test("nah", /ok/i, /game over/i, /score: 2/i);
+      assert(game.isDone());
+    });
+
+    it("can die and get reincarnated a few times", function () {
+      _test("building", /inside a building/i);
+      _test("xyzzy", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /fell into a pit/i, /try to reincarnate you/i);
+      _test("y", /all right/i, /orange smoke/i, /inside building/i);
+      _test("xyzzy", /pitch dark/i);
+      _test("w", /fell into a pit/i, /clumsy oaf/i);
+      _test("y", /where did I put my orange smoke/i, /inside building/i);
+      _test("xyzzy", /pitch dark/i);
+      _test("w", /fell into a pit/i, /out of orange smoke/i);
+      _test("y", /do it yourself/i, /game over/i, /score: 6/i);
+    });
+
+    it("drops items correctly on death", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("take food", /ok/i);
+      _test("take bottle", /ok/i);
+      _test("take keys", /ok/i);
+      _test("xyzzy", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /pitch dark/i);
+      _test("w", /pitch dark/i);
+      _test("e", /fell into a pit/i, /try to reincarnate you/i);
+      _test("y", /all right/i, /orange smoke/i, /inside building/i);
+      _test("exit", /end of road/i, /brass lamp/i);
+      _test("take lamp", /ok/i);
+      _test("lamp on", /lamp is now on/i);
+      _test("building", /inside building/i);
+      _test("xyzzy", /debris room/i, /keys/i, /food/i, /bottle/i, /black rod/i);
+    });
+  });
+
   describe("handles scenarios", function () {
 
     beforeEach(function () {
@@ -186,6 +262,43 @@ describe("Adventure 350", function () {
       _test("kill", /doesn't work/i);
       _test("eat snake", /just lost my appetite/i);
       _test("feed snake", /snake has now devoured your bird/i);
+    });
+  });
+
+  describe("opening the grate", function () {
+    beforeEach(function () {
+      _test("", /welcome to adventure/i);
+      _test("nah", /standing at the end of a road/i);
+      _test("building", /inside a building/i);
+      _test("take keys", /ok/i);
+      _test("exit", /end of road again/i);
+      _test("gully", /valley in the forest/i);
+      _test("downstream", /2-inch slit in the rock/i);
+    });
+
+    it("fails at wrong place", function () {
+      _test("open", /nothing here with a lock/);
+    });
+
+    it("fails without keys", function () {
+      _test("drop keys", /ok/);
+      _test("downstream", /grate mounted in concrete/i);
+      _test("open", /no keys/);
+    });
+
+    it("works with intransitive lock", function () {
+      _test("downstream", /grate mounted in concrete/i);
+      _test("lock", /now unlocked/);
+    });
+
+    it("works with intransitive unlock", function () {
+      _test("downstream", /grate mounted in concrete/i);
+      _test("unlock", /now unlocked/);
+    });
+
+    it("works with direct open", function () {
+      _test("downstream", /grate mounted in concrete/i);
+      _test("open grate", /now unlocked/);
     });
   });
 
@@ -240,7 +353,8 @@ describe("Adventure 350", function () {
         _test("wave rod", /crystal bridge/i, /spans the fissure/i);
         _test("cross", /west side/i, /spans the fissure/i, /diamonds/i);
         _test("take diamonds", /ok/i);
-        _test("east", /east bank/i);
+        _test("east", /east bank/i, /little dwarf/i, /little axe/i);
+        _test("take axe", /ok/);
         _test("e", /hall of mists/i);
         _test("up", /top of small pit/i);
         _test("e", /bird chamber/i);
@@ -248,6 +362,7 @@ describe("Adventure 350", function () {
         _test("east", /debris room/i);
         _test("xyzzy", /inside building/i);
         _test("drop diamonds", /ok/i);
+        _test("drop axe", /ok/);
         _test("score", /showing up: 2/i, /treasures: 12/i, /getting well in: 25/i, /score: 39/i);
       },
       function () {
@@ -266,8 +381,7 @@ describe("Adventure 350", function () {
         _test("take bird", /ok/i);
         _test("n", /low N\/S passage/i, /bars of silver/i);
         _test("take silver", /ok/);
-        _test("north", /large room/i, /y2/i);
-        _test("look", /large room/i, /y2/i, /hollow voice/);
+        _test("north", /large room/i, /y2/i, /hollow voice/);
         _test("plugh", /inside building/i, /black rod/i, /tasty food/i, /bottle of water/i, /diamonds/i);
         _test("drop nugget", /ok/i);
         _test("drop silver", /ok/i);
