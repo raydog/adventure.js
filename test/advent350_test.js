@@ -101,6 +101,7 @@ describe("Adventure 350", function () {
       _test("calm keys", /no keys here/i);
       _test("building", /inside a building/i);
       _test("downstream", /sewer pipes/i, /use the exit/i);
+      _test("keys", /what do you want to do with the keys/i);
       _test("calm keys", /care to explain how/i);
       _test("walk food", /where/i);
       _test("quit food", /don't understand/i);
@@ -159,6 +160,15 @@ describe("Adventure 350", function () {
       _test("plugh", /pitch dark/i);
       _test("lamp on", /lamp is now on/i, /large "Y2" on a rock/);
       _test("lamp off", /lamp is now off/i);
+      _test("look", /pitch dark/i);
+    });
+
+    it("can toggle the lamp on/off in an intransitive way", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("plugh", /pitch dark/i);
+      _test("on", /lamp is now on/i, /large "Y2" on a rock/);
+      _test("off", /lamp is now off/i);
       _test("look", /pitch dark/i);
     });
   });
@@ -313,6 +323,7 @@ describe("Adventure 350", function () {
     it("can go down the pit", _upTo(2));
     it("can bring back diamonds", _upTo(3));
     it("can drive back the snake", _upTo(4));
+    it("can kill the first dwarf", _upTo(5));
 
 
     function _upTo(num) {
@@ -386,6 +397,18 @@ describe("Adventure 350", function () {
         _test("drop nugget", /ok/i);
         _test("drop silver", /ok/i);
         _test("score", /showing up: 2/i, /treasures: 36/i, /getting well in: 25/i, /score: 63/i);
+      },
+      function () {
+        _test("take axe", /ok/i);
+        _test("take food", /ok/i);
+        _test("plugh", /y2/i);
+        _test("south", /little dwarf/i, /knife is thrown/i, /misses/i);
+        _test("calm dwarf", /explain how/i);
+        _test("feed dwarf", /dwarves eat only coal/i, /really mad/i, /knife is thrown/i, /misses/i);
+        _test("eat dwarf", /lost my appetite/i, /knife is thrown/i, /misses/i);
+        _test("find dwarf", /right here with you/i, /knife is thrown/i, /misses/i);
+        _test("throw axe", /killed a little dwarf/i, /greasy black smoke/i, /low n\/s passage/i, /axe here/i);
+        _test("take axe", /ok/);
       }
     ];
   });
