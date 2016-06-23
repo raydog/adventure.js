@@ -103,6 +103,7 @@ describe("Adventure 350", function () {
       _test("downstream", /sewer pipes/i, /use the exit/i);
       _test("keys", /what do you want to do with the keys/i);
       _test("calm keys", /care to explain how/i);
+      _test("rub lamp", /not particularly rewarding/i);
       _test("walk food", /where/i);
       _test("quit food", /don't understand/i);
       _test("score bottle", /don't understand/i);
@@ -170,6 +171,33 @@ describe("Adventure 350", function () {
       _test("on", /lamp is now on/i, /large "Y2" on a rock/);
       _test("off", /lamp is now off/i);
       _test("look", /pitch dark/i);
+    });
+  });
+
+  describe("when travelling back", function () {
+    beforeEach(function () {
+      _test("", /welcome to adventure/i);
+      _test("no", /standing at the end of a road/i);
+    });
+
+    it("works for standard movement", function () {
+      _test("s", /valley in the forest/i);
+      _test("go back", /end of road/i);
+    });
+
+    it("works with extra conditions", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("lamp on", /lamp is now on/i);
+      _test("plugh", /y2/i);
+      _test("s", /low n\/s passage/i);
+      _test("back", /y2/i);
+    });
+
+    it("skips if confused", function () {
+      _test("s", /valley in the forest/i);
+      _test("go back", /end of road/i);
+      _test("go back", /no longer seem to remember/i);
     });
   });
 
