@@ -108,6 +108,7 @@ describe("Adventure 350", function () {
       _test("downstream", /sewer pipes/i, /use the exit/i);
       _test("keys", /what do you want to do with the keys/i);
       _test("calm keys", /care to explain how/i);
+      _test("wake keys", /ridiculous/i);
       _test("rub lamp", /not particularly rewarding/i);
       _test("walk food", /where/i);
       _test("quit food", /don't understand/i);
@@ -309,6 +310,29 @@ describe("Adventure 350", function () {
       _test("feed snake", /snake has now devoured your bird/i);
     });
 
+    it("with a dwarf", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("take food");
+      _test("on lamp", /lamp is now on/i);
+      _test("plugh", /y2/i);
+
+      // Wait until a dwarf shows up:
+      for (var i=0; i<20; i++) {
+        _test("say waiting " + i, /waiting/i);
+      }
+      _test("say last wait", /last wait/i, /little dwarf/i, /threw a little axe/i);
+      _test("take axe", /ok/i);
+
+      _test("calm dwarf", /care to explain how/i);
+      _test("west", /little dwarf/i, /overlooking a huge pit/i);
+      _test("feed dwarf", /dwarves eat only coal/i, /really mad/i, /knife is thrown/i, /misses/i);
+      _test("eat dwarf", /lost my appetite/i, /knife is thrown/i, /misses/i);
+      _test("find dwarf", /right here with you/i, /knife is thrown/i, /misses/i);
+
+      _test("throw axe", /killed a little dwarf/i);
+    });
+
     it("with the dragon", function () {
       _test("building", /inside a building/i);
       _test("take lamp", /ok/i);
@@ -434,7 +458,7 @@ describe("Adventure 350", function () {
         _test("take bird", /ok/i);
         _test("east", /awkward sloping east\/west canyon/i);
         _test("e", /in debris room/i, /black rod/i);
-        _test("take rod", /ok/i);
+        _test("take", /ok/i);
         _test("w", /awkward sloping east\/west canyon/i);
         _test("w", /bird chamber/i);
         _test("w", /small pit breathing traces of white mist/i, /stone steps lead down/i);
