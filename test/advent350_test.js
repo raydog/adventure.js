@@ -97,7 +97,12 @@ describe("Adventure 350", function () {
       _test("drink water", /taken a drink/i);
     });
 
+    it("can fast travel to the grate", function () {
+      _test("grate", /depression floored with bare dirt/i);
+    });
+
     it("has flavor text for odd stuff", function () {
+      _test("find cave", /i would try the stream/i);
       _test("calm keys", /no keys here/i);
       _test("building", /inside a building/i);
       _test("downstream", /sewer pipes/i, /use the exit/i);
@@ -125,6 +130,7 @@ describe("Adventure 350", function () {
       _test("inventory bottle", /right here with you/i);
 
       _test("take lamp", /ok/i);
+      _test("find lamp", /already carrying it/i);
       _test("inventory", /holding the following/i, /brass lantern/i);
       _test("wave lamp", /nothing happens/i);
       _test("drop lantern", /ok/i);
