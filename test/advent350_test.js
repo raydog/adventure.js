@@ -267,11 +267,58 @@ describe("Adventure 350", function () {
       _test("w", /small pit breathing traces of white mist/i, /stone steps lead down/i);
       _test("down", /vast hall/i, /stone steps lead up/i);
       _test("north", /hall of the mountain king/i, /fierce snake/i);
+      _test("north", /can't get by the snake/i);
       _test("calm snake", /care to explain how/i);
       _test("attack snake", /doesn't work/i);
       _test("kill", /doesn't work/i);
       _test("eat snake", /just lost my appetite/i);
       _test("feed snake", /snake has now devoured your bird/i);
+    });
+
+    it("with the dragon", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("on lamp", /lamp is now on/i);
+      _test("xyzzy", /debris room filled with stuff/i);
+      _test("e", /crawling over cobbles/i, /small wicker cage/i);
+      _test("take cage", /ok/i);
+      _test("w", /debris room/i);
+      _test("w", /east\/west canyon/i);
+      _test("w", /splendid chamber/i, /little bird/i);
+      _test("take bird", /ok/i);
+      _test("e", /east\/west canyon/i);
+      _test("e", /debris room/i);
+      _test("xyzzy", /inside building/i);
+      _test("plugh", /y2/i);
+
+      // Wait until a dwarf shows up:
+      for (var i=0; i<12; i++) {
+        _test("say waiting", /waiting/i);
+      }
+      _test("say waiting", /waiting/i, /little dwarf/i, /threw a little axe/i);
+      _test("take axe", /ok/i);
+      _test("throw axe", /killed a little dwarf/i);
+      _test("take axe", /ok/i);
+
+      _test("s", /low N\/S passage/i);
+      _test("s", /hall of the mountain king/i);
+      _test("sw", /secret canyon/i);
+      _test("w", /secret canyon/i, /fierce dragon/i, /persian rug/i);
+
+      _test("n", /best not try/i);
+      _test("calm dragon", /care to explain how/i);
+      _test("feed dragon", /nothing here it wants to eat/i);
+      _test("eat dragon", /lost my appetite/i);
+      _test("take rug", /can't be serious/i);
+      _test("throw axe", /bounces harmlessly off the dragon/i);
+      _test("drop bird", /gets burnt to a cinder/i);
+
+      _test("kill dragon", /with what/i, /bare hands/i);
+      _test("n", /ok/i);
+      _test("kill dragon", /with what/i, /bare hands/i);
+      _test("y", /vanquished a dragon/i);
+
+      _test("take rug", /ok/);
     });
   });
 
