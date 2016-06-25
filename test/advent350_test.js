@@ -105,6 +105,8 @@ describe("Adventure 350", function () {
       _test("find cave", /i would try the stream/i);
       _test("calm keys", /no keys here/i);
       _test("building", /inside a building/i);
+      _test("pour keys", /aren't carrying/i);
+      _test("throw keys", /aren't carrying/i);
       _test("downstream", /sewer pipes/i, /use the exit/i);
       _test("keys", /what do you want to do with the keys/i);
       _test("calm keys", /care to explain how/i);
@@ -131,10 +133,13 @@ describe("Adventure 350", function () {
       _test("inventory bottle", /right here with you/i);
 
       _test("take lamp", /ok/i);
+      _test("pour lamp", /can't pour that/i);
       _test("find lamp", /already carrying it/i);
       _test("inventory", /holding the following/i, /brass lantern/i);
       _test("wave lamp", /nothing happens/i);
       _test("drop lantern", /ok/i);
+      _test("take bottle", /ok/i);
+      _test("pour bottle", /ground is wet/i);
     });
 
     it("can calculate scores at start", function () {
@@ -429,6 +434,7 @@ describe("Adventure 350", function () {
     it("can bring back diamonds", _upTo(3));
     it("can drive back the snake", _upTo(4));
     it("can kill the first dwarf", _upTo(5));
+    it("can lose stuff to the pirate and meet the plant", _upTo(6));
 
 
     function _upTo(num) {
@@ -493,7 +499,7 @@ describe("Adventure 350", function () {
         _test("north", /hall of mists/i);
         _test("up", /dome is unclimbable/i);
         _test("n", /hall of the mountain king/i, /green fierce snake/i);
-        _test("drop bird", /drives the snake away/i);
+        _test("throw bird", /drives the snake away/i);
         _test("take bird", /ok/i);
         _test("n", /low N\/S passage/i, /bars of silver/i);
         _test("take silver", /ok/);
@@ -505,15 +511,36 @@ describe("Adventure 350", function () {
       },
       function () {
         _test("take axe", /ok/i);
-        _test("take food", /ok/i);
+        _test("take bottle", /ok/i);
         _test("plugh", /y2/i);
         _test("south", /little dwarf/i, /knife is thrown/i, /misses/i);
         _test("calm dwarf", /explain how/i);
-        _test("feed dwarf", /dwarves eat only coal/i, /really mad/i, /knife is thrown/i, /misses/i);
+        _test("feed dwarf", /nothing here to eat/i, /knife is thrown/i, /misses/i);
         _test("eat dwarf", /lost my appetite/i, /knife is thrown/i, /misses/i);
         _test("find dwarf", /right here with you/i, /knife is thrown/i, /misses/i);
         _test("throw axe", /killed a little dwarf/i, /greasy black smoke/i, /low n\/s passage/i, /axe here/i);
         _test("take axe", /ok/);
+      },
+      function () {
+        _test("south", /hall of mt. king/i);
+        _test("south", /south side chamber/i, /jewelry here/i);
+        _test("take jewelry", /ok/i);
+        _test("north", /hall of mt. king/i);
+        _test("sw", /secret canyon/i);
+        _test("west", /secret canyon which exits to the north/i, /fierce dragon/i, /persian rug/i);
+        _test("kill", /bare hands/i);
+        _test("yes", /congratulations/i, /secret canyon/i, /body of a huge green dead dragon/i, /persian rug/i);
+        _test("take rug", /have to drop something/i);
+        _test("inventory", /currently holding/i, /keys/i, /lantern/i, /cage/i, /bird/i, /bottle/i, /axe/i, /jewelry/i, /bearded pirate/i);
+        _test("n", /secret n\/s canyon/i);
+        _test("n", /north\/south canyon/i, /25 feet across./i);
+        _test("break mirror", /too far up/i);
+        _test("s", /secret n\/s canyon/i);
+        _test("down", /large low circular chamber/i);
+        _test("s", /west end of the twopit room/i, /12-foot-tall beanstalk/i);
+        _test("down", /bottom of the western pit/i, /tiny little plant/i, /water, water/i);
+        _test("take plant", /deep roots/i);
+        _test("pour", /spurts into furious growth/i, /west pit/i, /bellowing "Water!! Water!!"/i);
       }
     ];
   });
