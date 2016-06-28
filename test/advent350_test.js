@@ -102,9 +102,11 @@ describe("Adventure 350", function () {
     });
 
     it("has flavor text for odd stuff", function () {
+      _test("take", /take what/i);
       _test("find cave", /i would try the stream/i);
       _test("calm keys", /no keys here/i);
       _test("building", /inside a building/i);
+      _test("take", /take what/i);
       _test("pour keys", /aren't carrying/i);
       _test("throw keys", /aren't carrying/i);
       _test("downstream", /sewer pipes/i, /use the exit/i);
@@ -133,6 +135,7 @@ describe("Adventure 350", function () {
       _test("inventory bottle", /right here with you/i);
 
       _test("take lamp", /ok/i);
+      _test("take lamp", /already carrying it/i);
       _test("pour lamp", /can't pour that/i);
       _test("find lamp", /already carrying it/i);
       _test("inventory", /holding the following/i, /brass lantern/i);
@@ -183,6 +186,62 @@ describe("Adventure 350", function () {
       _test("on", /lamp is now on/i, /large "Y2" on a rock/);
       _test("off", /lamp is now off/i);
       _test("look", /pitch dark/i);
+    });
+
+    it("can fail to get the bird", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("on", /lamp is now on/i);
+      _test("xyzzy", /debris room/i);
+      _test("w", /east\/west canyon/i);
+      _test("w", /splendid chamber/i, /little bird/i);
+      _test("take", /cannot carry it/i);
+    });
+  });
+
+  describe("basic liquid mechanics", function () {
+    beforeEach(function () {
+      _test("", /welcome to adventure/i);
+      _test("no", /standing at the end of a road/i);
+    });
+
+    it("can't take without bottle", function () {
+      _test("take water", /nothing in which to carry it/i);
+    });
+
+    it("can't fill with full bottle", function () {
+      _test("building", /inside a building/i);
+      _test("take bottle", /ok/);
+      _test("fill bottle", /bottle is already full/i);
+    });
+
+    describe("with oil", function () {
+      beforeEach(function () {
+        _test("building", /inside a building/i);
+        _test("take bottle", /ok/);
+        _test("take lantern", /ok/);
+        _test("on", /lamp is now on/i);
+        _test("plugh", /y2/i);
+        _test("s", /low n\/s passage/i);
+        _test("down", /dirty broken passage/i);
+        _test("w", /large room full of dusty rocks/i);
+        _test("down", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("w", /swiss cheese/i);
+        _test("w", /east end of the twopit room/i);
+        _test("down", /bottom of the eastern pit/i, /pool of oil/i);
+      });
+
+
+      it("can't take with oil with full bottle", function () {
+        _test("take oil", /bottle is already full/i);
+      });
+
+      it("can't drink oil", function () {
+        _test("drink water", /is now empty/i);
+        _test("take oil", /full of oil/i);
+        _test("drink oil", /don't be ridiculous/i);
+      });
     });
   });
 
