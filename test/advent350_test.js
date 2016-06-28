@@ -494,6 +494,9 @@ describe("Adventure 350", function () {
     it("can drive back the snake", _upTo(4));
     it("can kill the first dwarf", _upTo(5));
     it("can lose stuff to the pirate and meet the plant", _upTo(6));
+    it("can free up the door hinges", _upTo(7));
+    it("can lose to the pirate again", _upTo(8));
+    it("can steal all the treasure back", _upTo(9));
 
 
     function _upTo(num) {
@@ -566,7 +569,7 @@ describe("Adventure 350", function () {
         _test("plugh", /inside building/i, /black rod/i, /tasty food/i, /bottle of water/i, /diamonds/i);
         _test("drop nugget", /ok/i);
         _test("drop silver", /ok/i);
-        _test("score", /showing up: 2/i, /treasures: 36/i, /getting well in: 25/i, /score: 63/i);
+        _test("drop cage", /ok/i);
       },
       function () {
         _test("take axe", /ok/i);
@@ -589,8 +592,8 @@ describe("Adventure 350", function () {
         _test("west", /secret canyon which exits to the north/i, /fierce dragon/i, /persian rug/i);
         _test("kill", /bare hands/i);
         _test("yes", /congratulations/i, /secret canyon/i, /body of a huge green dead dragon/i, /persian rug/i);
-        _test("take rug", /have to drop something/i);
-        _test("inventory", /currently holding/i, /keys/i, /lantern/i, /cage/i, /bird/i, /bottle/i, /axe/i, /jewelry/i, /bearded pirate/i);
+        _test("take rug", /ok/i);
+        _test("inventory", /currently holding/i, /keys/i, /lantern/i, /bottle/i, /axe/i, /jewelry/i, /rug/i, /bearded pirate/i);
         _test("n", /secret n\/s canyon/i);
         _test("n", /north\/south canyon/i, /25 feet across./i);
         _test("break mirror", /too far up/i);
@@ -600,6 +603,97 @@ describe("Adventure 350", function () {
         _test("down", /bottom of the western pit/i, /tiny little plant/i, /water, water/i);
         _test("take plant", /deep roots/i);
         _test("pour", /spurts into furious growth/i, /west pit/i, /bellowing "Water!! Water!!"/i);
+      },
+      function () {
+        _test("up", /west end of twopit/i);
+        _test("west", /slab room/i);
+        _test("up", /secret n\/s canyon/i);
+        _test("n", /mirror canyon/i);
+        _test("n", /large underground reservoir/i);
+        _test("fill bottle", /full of water/i);
+        _test("s", /mirror canyon/i);
+        _test("s", /secret n\/s canyon/i);
+        _test("down", /slab room/i);
+        _test("s", /west end of twopit/i);
+        _test("down", /west pit/i, /beanstalk/i);
+        _test("pour water", /grows explosively/i, /gigantic beanstalk/i);
+        _test("up", /west end of twopit/i);
+        _test("east", /east end of the twopit room/i);
+        _test("down", /bottom of the eastern pit/i);
+        _test("fill bottle", /full of oil/i);
+        _test("up", /east end of twopit/i);
+        _test("west", /west end of twopit/i);
+        _test("down", /west pit/i);
+        _test("climb", /clamber up the plant/i, /long, narrow corridor/i);
+        _test("west", /the giant room/i, /fee fie foe foo/i, /golden eggs/i);
+        _test("take eggs", /ok/i);
+        _test("north", /immense north\/south passage/i, /rusty, iron door/i);
+        _test("pour", /freed up the hinges/i);
+      },
+      function () {
+        _test("north", /magnificent cavern/i, /trident/i);
+        _test("inventory", /holding the following/i, /keys/i, /lantern/i, /bottle/i, /axe/i, /eggs/i);
+        _test("take trident", /ok/i);
+        _test("west", /steep incline/i);
+        _test("down", /large low room/i);
+        _test("se", /oriental room/i);
+        _test("se", /swiss cheese/i);
+        _test("ne", /bedquilt/i);
+        _test("e", /complex junction/i);
+        _test("up", /large room full of dusty rocks/i);
+        _test("east", /dirty broken passage/i);
+        _test("up", /low n\/s passage/i);
+        _test("s", /hall of mt. king/i);
+        _test("n", /low N\/S passage/i);
+        _test("n", /y2/i, /bearded pirate/i, /vanishes into the gloom/i);
+        _test("off", /lamp is now off/i);
+        _test("plugh", /inside building/i);
+        _test("inventory", /holding/i, /keys/i, /lantern/i, /bottle/i, /axe/i);
+        _test("drop keys", /ok/i);
+        _test("drop bottle", /ok/i);
+        _test("score", /showing up:\s*2/i, /treasures:\s*46$/i, /getting well in:\s*25$/i, /score:\s*73$/i);
+        _test("say waiting", /waiting/i);
+      },
+      function () {
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i, /y2/i, /little dwarf/i, /knife is thrown/i);
+        _test("throw axe", /killed a little dwarf/i, /y2/i);
+        _test("take axe", /ok/i);
+        _test("east", /jumble of rock/i);
+        _test("up", /little dwarf/i, /hall of mists/i, /rough stone steps/i);
+        _test("throw axe", /killed a little dwarf/i, /hall of mists/i);
+        _test("take axe", /ok/i);
+        _test("west", /east bank of fissure/i);
+        _test("west", /west side of the fissure/i);
+        _test("west", /west end of hall of mists/i);
+        _test("s", /maze of twisty little passages, all alike/i);
+        _test("e", /maze of twisty little passages, all alike/i);
+        _test("s", /maze of twisty little passages, all alike/i);
+        _test("s", /maze of twisty little passages, all alike/i);
+        _test("s", /maze of twisty little passages, all alike/i);
+        _test("n", /maze of twisty little passages, all alike/i);
+        _test("e", /brink of a thirty foot pit/i);
+        _test("n", /maze of twisty little passages, all alike/i);
+        _test("e", /maze of twisty little passages, all alike/i);
+        _test("nw", /dead end/i, /jewelry/i, /pirate's treasure chest/i, /golden eggs/i, /trident/i, /rug/i);
+        _test("take jewelry", /ok/i);
+        _test("take chest", /ok/i);
+        _test("take eggs", /ok/i);
+        _test("take trident", /ok/i);
+        _test("take rug", /ok/i);
+        _test("se", /maze of twisty little passages, all alike/i);
+        _test("n", /brink of pit/i);
+        _test("down", /bird chamber/i);
+        _test("e", /sloping east\/west canyon/i);
+        _test("e", /debris room/i);
+        _test("off", /lamp is now off/i);
+        _test("xyzzy", /inside building/i);
+        _test("drop jewelry", /ok/i);
+        _test("drop chest", /ok/i);
+        _test("drop eggs", /ok/i);
+        _test("drop trident", /ok/i);
+        _test("drop rug", /ok/i);
+        _test("score", /showing up:\s*2/i, /treasures:\s*112$/i, /getting well in:\s*25$/i, /score:\s*139$/i);
       }
     ];
   });
@@ -619,8 +713,8 @@ describe("Adventure 350", function () {
       for (var i=0; i<out.length; i++) {
         if (re.test(out[i])) { return; }
       }
-      var txt = out.join("\n");
-      assert.fail(0, 0, `Didn't find a line like ${re} in output:\n-----\n${txt}\n-----`);
+      var txt = out.join("\n").trim();
+      assert.fail(0, 0, `Didn't find a line like ${re} in output:\n> ${str}\n-----\n${txt}\n-----`);
     });
   }
 });
