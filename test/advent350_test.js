@@ -480,6 +480,50 @@ describe("Adventure 350", function () {
       _test("throw silver", /scurries away/i);
       _test("cross", /far side of the chasm/i, /troll is nowhere/i);
     });
+
+    it("with the bear", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("take food", /ok/i);
+      _test("take keys", /ok/i);
+      _test("plugh", /pitch dark/i);
+      _test("on", /lamp is now on/i, /y2/i);
+      _test("s", /low n\/s passage/i, /bars of silver/i);
+      _test("take silver", /ok/i);
+      _test("down", /dirty broken passage/i);
+      _test("west", /dusty rocks/i);
+      _test("down", /complex junction/i);
+      _test("w", /bedquilt/i);
+      _test("n", /back in the main passage/i);
+      _test("w", /swiss cheese/i);
+      _test("nw", /back in the main passage/i);
+      _test("nw", /back in the main passage/i, /little dwarf/i);
+      _test("take axe", /ok/i);
+      _test("nw", /oriental room/i);
+      _test("w", /low room/i);
+      _test("sw", /long winding corridor/i);
+      _test("up", /large deep chasm/i, /pay troll/i);
+      _test("throw silver", /scurries away/i);
+      _test("cross", /far side of the chasm/i);
+      _test("ne", /long east\/west corridor/i);
+      _test("e", /path forks/i);
+      _test("se", /oddly shaped limestone formations/i);
+      _test("s", /standing at the entrance/i);
+      _test("e", /barren room/i, /ferocious cave bear/i, /locked to the wall/i);
+
+      _test("fight bear", /bear hands/i);
+      _test("take chain", /can't be serious/i);
+      _test("break chain", /beyond your power/i);
+      _test("eat bear", /lost my appetite/i);
+      _test("throw axe", /axe misses/i, /near the bear/i);
+      _test("take axe", /can't be serious/i);
+      _test("unlock", /no way to get past/i);
+      _test("throw food", /eagerly wolfs down your food/i);
+      _test("look", /gentle cave bear/i);
+      _test("unlock chain", /now unlocked/i);
+      _test("kill bear", /he only wants to be your friend/i);
+      _test("take bear", /ok/i);
+    });
   });
 
   describe("opening the grate", function () {
