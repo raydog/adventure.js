@@ -191,6 +191,17 @@ describe("Adventure 350", function () {
       _test("look", /pitch dark/i);
     });
 
+    it("can totally waste batteries", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("on", /lamp is now on/i);
+      for (var i=0; i<328; i++) {
+        _test("downstream", /stream flows out/i);
+      }
+      _test("downstream", /lamp has run out of power/i);
+      _test("downstream", /not much point/i, /game over/i);
+    });
+
     it("can fail to get the bird", function () {
       _test("building", /inside a building/i);
       _test("take lamp", /ok/i);
