@@ -102,16 +102,19 @@ describe("Adventure 350", function () {
     });
 
     it("has flavor text for odd stuff", function () {
+      _test("kill", /nothing here to attack/i);
       _test("take", /take what/i);
       _test("find cave", /i would try the stream/i);
       _test("calm keys", /no keys here/i);
       _test("building", /inside a building/i);
       _test("take", /take what/i);
+      _test("unlock keys", /can't unlock/i);
       _test("pour keys", /aren't carrying/i);
       _test("throw keys", /aren't carrying/i);
       _test("downstream", /sewer pipes/i, /use the exit/i);
       _test("keys", /what do you want to do with the keys/i);
       _test("calm keys", /care to explain how/i);
+      _test("kill keys", /ridiculous/i);
       _test("wake keys", /ridiculous/i);
       _test("rub lamp", /not particularly rewarding/i);
       _test("walk food", /where/i);
@@ -349,7 +352,7 @@ describe("Adventure 350", function () {
       _test("take bird", /becomes disturbed/i, /you cannot catch it/i);
       _test("eat bird", /lost my appetite/i);
       _test("calm bird", /care to explain how/);
-      _test("kill bird", /little bird is now dead/i);
+      _test("kill", /little bird is now dead/i);
     });
 
     it("with the snake", function () {
@@ -359,6 +362,7 @@ describe("Adventure 350", function () {
       _test("xyzzy", /debris room filled with stuff/i);
       _test("e", /crawling over cobbles/i, /small wicker cage/i);
       _test("take cage", /ok/i);
+      _test("unlock cage", /has no lock/i);
       _test("w", /debris room/i);
       _test("w", /east\/west canyon/i);
       _test("w", /splendid chamber/i, /little bird/i);
@@ -390,6 +394,7 @@ describe("Adventure 350", function () {
 
       _test("calm dwarf", /care to explain how/i);
       _test("west", /little dwarf/i, /overlooking a huge pit/i);
+      _test("kill", /bare hands/i);
       _test("feed dwarf", /dwarves eat only coal/i, /really mad/i, /knife is thrown/i, /misses/i);
       _test("eat dwarf", /lost my appetite/i, /knife is thrown/i, /misses/i);
       _test("find dwarf", /right here with you/i, /knife is thrown/i, /misses/i);
@@ -439,6 +444,7 @@ describe("Adventure 350", function () {
       _test("n", /ok/i);
       _test("kill dragon", /with what/i, /bare hands/i);
       _test("y", /vanquished a dragon/i);
+      _test("kill dragon", /poor thing is already dead/i);
 
       _test("take rug", /ok/);
     });
@@ -511,7 +517,7 @@ describe("Adventure 350", function () {
       _test("s", /standing at the entrance/i);
       _test("e", /barren room/i, /ferocious cave bear/i, /locked to the wall/i);
 
-      _test("fight bear", /bear hands/i);
+      _test("fight", /bear hands/i);
       _test("take chain", /can't be serious/i);
       _test("break chain", /beyond your power/i);
       _test("eat bear", /lost my appetite/i);
