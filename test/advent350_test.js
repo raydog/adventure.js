@@ -442,6 +442,44 @@ describe("Adventure 350", function () {
 
       _test("take rug", /ok/);
     });
+
+    it("with the troll", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("take food", /ok/i);
+      _test("plugh", /pitch dark/i);
+      _test("on", /lamp is now on/i, /y2/i);
+      _test("s", /low n\/s passage/i, /bars of silver/i);
+      _test("take silver", /ok/i);
+      _test("down", /dirty broken passage/i);
+      _test("west", /dusty rocks/i);
+      _test("down", /complex junction/i);
+      _test("w", /bedquilt/i);
+      _test("n", /back in the main passage/i);
+      _test("w", /swiss cheese/i);
+      _test("nw", /back in the main passage/i);
+      _test("nw", /back in the main passage/i, /little dwarf/i);
+      _test("take axe", /ok/i);
+      _test("nw", /oriental room/i);
+      _test("w", /low room/i);
+      _test("sw", /long winding corridor/i);
+      _test("up", /large deep chasm/i, /pay troll/i);
+      _test("throw axe", /deftly catches the axe/i);
+      _test("take axe", /ok/i, /little dwarf/i);
+      _test("throw axe", /killed a little dwarf/i);
+      _test("take axe", /ok/i);
+
+      _test("cross", /refuses to let you cross/i);
+      _test("calm troll", /explain how/i);
+      _test("kill", /close relatives with the rocks/i);
+      _test("eat troll", /lost my appetite/i);
+      _test("feed troll", /avarice/i);
+      _test("take troll", /can't be serious/i);
+      _test("jump", /suggest you go across/i);
+      _test("throw troll", /aren't carrying it/i);
+      _test("throw silver", /scurries away/i);
+      _test("cross", /far side of the chasm/i, /troll is nowhere/i);
+    });
   });
 
   describe("opening the grate", function () {
