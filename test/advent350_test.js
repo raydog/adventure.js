@@ -245,6 +245,13 @@ describe("Adventure 350", function () {
         _test("take oil", /full of oil/i);
         _test("drink oil", /don't be ridiculous/i);
       });
+
+      it("can't drink oil from ground", function () {
+        _test("up", /east end of twopit/i);
+        _test("drop bottle", /ok/i);
+        _test("down", /east pit/i);
+        _test("drink", /drink what/i);
+      });
     });
   });
 
@@ -526,9 +533,70 @@ describe("Adventure 350", function () {
       _test("unlock", /no way to get past/i);
       _test("throw food", /eagerly wolfs down your food/i);
       _test("look", /gentle cave bear/i);
+      _test("lock chain", /already locked/i);
       _test("unlock chain", /now unlocked/i);
+      _test("unlock chain", /already unlocked/i);
       _test("kill bear", /he only wants to be your friend/i);
       _test("take bear", /ok/i);
+      _test("take chain", /ok/i);
+      _test("lock chain", /now locked/i);
+    });
+
+    describe("with the troll and bear", function () {
+      beforeEach(function () {
+        _test("building", /inside a building/i);
+        _test("take lamp", /ok/i);
+        _test("take food", /ok/i);
+        _test("take keys", /ok/i);
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i, /y2/i);
+        _test("s", /low n\/s passage/i, /bars of silver/i);
+        _test("take silver", /ok/i);
+        _test("down", /dirty broken passage/i);
+        _test("west", /dusty rocks/i);
+        _test("down", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("n", /back in the main passage/i);
+        _test("w", /swiss cheese/i);
+        _test("nw", /back in the main passage/i);
+        _test("nw", /back in the main passage/i, /little dwarf/i);
+        _test("take axe", /ok/i);
+        _test("nw", /oriental room/i);
+        _test("w", /low room/i);
+        _test("sw", /long winding corridor/i);
+        _test("up", /large deep chasm/i, /pay troll/i);
+        _test("throw silver", /scurries away/i);
+        _test("cross", /far side of the chasm/i);
+        _test("ne", /long east\/west corridor/i);
+        _test("e", /path forks/i);
+        _test("se", /oddly shaped limestone formations/i);
+        _test("s", /standing at the entrance/i);
+        _test("e", /barren room/i, /ferocious cave bear/i, /locked to the wall/i);
+        _test("throw food", /eagerly wolfs down your food/i);
+        _test("unlock chain", /now unlocked/i);
+        _test("take chain", /ok/i);
+        _test("take bear", /ok/i);
+        _test("w", /being followed/i, /front of barren room/i);
+        _test("lock chain", /nothing here to which/i);
+        _test("drop keys", /ok/i);
+        _test("w", /being followed/i, /limestone passage/i);
+        _test("lock chain", /no keys/i);
+        _test("n", /being followed/i, /fork in path/i);
+        _test("w", /being followed/i, /corridor/i);
+        _test("w", /being followed/i, /ne side of chasm/i);
+        _test("cross", /troll steps out from beneath/i);
+      });
+
+      it("can die on the bridge", function () {
+        _test("throw chain", /catches your treasure/i);
+        _test("cross", /bridge buckles/i, /gotten yourself killed/i);
+      });
+
+      it("can scare away the troll", function () {
+        _test("throw bear", /startled shriek/i);
+        _test("drop bear", /ok/i);
+        _test("look", /contented-looking bear/i);
+      });
     });
   });
 
