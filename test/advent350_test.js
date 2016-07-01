@@ -694,6 +694,90 @@ describe("Adventure 350", function () {
         _test("look", /oriental room/i, /ming vase/i);
       });
     });
+
+    describe("with the eggs", function () {
+      beforeEach(function () {
+        _test("building", /inside a building/i);
+        _test("take lamp", /ok/i);
+        _test("take bottle", /ok/i);
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i, /y2/i);
+        _test("s", /low n\/s passage/i, /bars of silver/i);
+        _test("down", /dirty broken passage/i);
+        _test("west", /dusty rocks/i);
+        _test("down", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("w", /swiss cheese/i);
+        _test("w", /east end of the twopit room/i);
+        _test("w", /west end of the twopit room/i);
+        _test("down", /bottom of the western pit/i);
+        _test("pour", /spurts into furious growth/i);
+        _test("take axe", /ok/i);
+        _test("up", /west end of twopit room./i);
+        _test("w", /low circular chamber/i);
+        _test("up", /secret n\/s canyon/i);
+        _test("n", /north\/south canyon/i);
+        _test("n", /edge of a large underground reservoir/i);
+        _test("fill bottle", /now full of water/i);
+        _test("throw axe", /killed a little dwarf/i);
+        _test("take axe", /ok/i);
+        _test("s", /mirror canyon/i);
+        _test("s", /secret n\/s canyon/i);
+        _test("down", /slab room./i);
+        _test("s", /west end of twopit room./i);
+        _test("down", /west pit/i, /threatening little dwarf/i);
+        _test("throw axe", /killed a little dwarf/i);
+        _test("pour", /grows explosively/i);
+        _test("climb", /scurry through the hole/i, /narrow corridor/i);
+        _test("w", /giant room/i, /fee fie foe foo/i, /eggs/i);
+      });
+
+      it("can get the chant wrong", function () {
+        _test("fee");
+        _test("fie");
+        _test("foe");
+        _test("fum", /can't you read/i);
+      });
+
+      it("can get the chant right but do nothing", function () {
+        _test("fee");
+        _test("fie");
+        _test("foe");
+        _test("foo", /nothing happens/i);
+      });
+
+      it("can get the chant right away from the eggs", function () {
+        _test("take eggs", /ok/i);
+        _test("s", /narrow corridor/i);
+        _test("drop eggs", /ok/i);
+        _test("east", /west pit/i);
+        _test("fee");
+        _test("fie");
+        _test("foe");
+        _test("foo", /done/i);
+      });
+
+      it("can get the chant right in the hall", function () {
+        _test("take eggs", /ok/i);
+        _test("s", /narrow corridor/i);
+        _test("drop eggs", /ok/i);
+        _test("west", /giant room/i);
+        _test("fee");
+        _test("fie");
+        _test("foe");
+        _test("foo", /large nest here, full of golden eggs/i);
+      });
+
+      it("can get the chant right", function () {
+        _test("take eggs", /ok/i);
+        _test("s", /narrow corridor/i);
+        _test("fee");
+        _test("fie");
+        _test("foe");
+        _test("foo", /golden eggs has vanished/i);
+        _test("w", /giant room/i, /eggs/i);
+      });
+    });
   });
 
   describe("opening the grate", function () {
