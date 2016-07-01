@@ -586,8 +586,13 @@ describe("Adventure 350", function () {
         _test("e", /path forks/i);
         _test("se", /oddly shaped limestone formations/i);
         _test("s", /standing at the entrance/i);
+        _test("drop food", /ok/i);
         _test("e", /barren room/i, /ferocious cave bear/i, /locked to the wall/i);
-        _test("throw food", /eagerly wolfs down your food/i);
+        _test("feed bear", /nothing here it wants to eat/i);
+        _test("w", /front of barren room/i);
+        _test("take food", /ok/i);
+        _test("e", /barren room/i);
+        _test("feed bear", /wolfs down your food/i);
         _test("unlock chain", /now unlocked/i);
         _test("take chain", /ok/i);
         _test("take bear", /ok/i);
@@ -599,6 +604,7 @@ describe("Adventure 350", function () {
         _test("n", /being followed/i, /fork in path/i);
         _test("w", /being followed/i, /corridor/i);
         _test("w", /being followed/i, /ne side of chasm/i);
+        _test("feed bear", /nothing here to eat/i);
         _test("cross", /troll steps out from beneath/i);
       });
 
@@ -611,6 +617,56 @@ describe("Adventure 350", function () {
         _test("throw bear", /startled shriek/i);
         _test("drop bear", /ok/i);
         _test("look", /contented-looking bear/i);
+      });
+    });
+
+    describe("with the vase", function () {
+      beforeEach(function () {
+        _test("building", /inside a building/i);
+        _test("take lamp", /ok/i);
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i, /y2/i);
+        _test("s", /low n\/s passage/i, /bars of silver/i);
+        _test("down", /dirty broken passage/i);
+        _test("west", /dusty rocks/i);
+        _test("down", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("n", /back in the main passage/i);
+        _test("w", /swiss cheese/i);
+        _test("e", /soft room/i, /velvet pillow/i);
+        _test("take pillow", /ok/i);
+        _test("w", /little dwarf/i, /swiss cheese/i, /little axe/i);
+        _test("take axe", /ok/i);
+        _test("nw", /oriental room/i, /ming vase/i);
+      });
+
+      it("can smash on ground", function () {
+        _test("take vase", /ok/i);
+        _test("drop vase", /delicate crash/i);
+        _test("look", /worthless shards of pottery/i);
+      });
+
+      it("can shatter with liquid", function () {
+        _test("take vase", /ok/i);
+        _test("se", /swiss cheese/i);
+        _test("w", /east end of the twopit room/i);
+        _test("down", /bottom of the eastern pit/i);
+        _test("fill vase", /change in temperature/i, /delicate crash/i);
+      });
+
+      it("can delicately place in soft room", function () {
+        _test("take vase", /ok/i);
+        _test("se", /swiss cheese/i);
+        _test("e", /soft room/i);
+        _test("drop vase", /ok/i);
+        _test("look", /soft room/i, /ming vase/i);
+      });
+
+      it("can delicately place on pillow", function () {
+        _test("take vase", /ok/i);
+        _test("drop pillow", /ok/i);
+        _test("drop vase", /now resting/i, /on a velvet pillow/i);
+        _test("look", /oriental room/i, /ming vase/i);
       });
     });
   });
