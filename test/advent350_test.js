@@ -668,9 +668,14 @@ describe("Adventure 350", function () {
 
       it("can shatter with liquid", function () {
         _test("take vase", /ok/i);
+        _test("fill vase", /nothing here with which to fill the vase/i);
         _test("se", /swiss cheese/i);
         _test("w", /east end of the twopit room/i);
         _test("down", /bottom of the eastern pit/i);
+        _test("drop pillow", /ok/i);
+        _test("drop vase", /on a velvet pillow/i);
+        _test("fill vase", /aren't carrying it/i);
+        _test("take vase", /ok/i);
         _test("fill vase", /change in temperature/i, /delicate crash/i);
       });
 
