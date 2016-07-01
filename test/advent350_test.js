@@ -202,6 +202,20 @@ describe("Adventure 350", function () {
       _test("downstream", /not much point/i, /game over/i);
     });
 
+    it("when reading", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("plugh", /pitch dark/i);
+      _test("read rod", /see no rod here/i);
+      _test("on", /lamp is now on/i);
+      _test("s", /low n\/s passage/i);
+      _test("down", /dirty broken passage/i);
+      _test("w", /room full of dusty rocks/i);
+      _test("down", /complex junction/i);
+      _test("east", /anteroom/i, /spelunker today/i);
+      _test("read magazine", /written in dwarvish/i);
+    });
+
     it("can fail to get the bird", function () {
       _test("building", /inside a building/i);
       _test("take lamp", /ok/i);
@@ -638,6 +652,12 @@ describe("Adventure 350", function () {
         _test("w", /little dwarf/i, /swiss cheese/i, /little axe/i);
         _test("take axe", /ok/i);
         _test("nw", /oriental room/i, /ming vase/i);
+      });
+
+      it("can directly break it", function () {
+        _test("take vase", /ok/i);
+        _test("break vase", /hurled it delicately/i);
+        _test("look", /worthless shards of pottery/i);
       });
 
       it("can smash on ground", function () {
