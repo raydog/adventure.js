@@ -101,6 +101,12 @@ describe("Adventure 350", function () {
       _test("grate", /depression floored with bare dirt/i);
     });
 
+    it("can fast travel back to the grate", function () {
+      _test("building", /inside a building/i);
+      _test("xyzzy", /now pitch dark/i);
+      _test("grate", /small chamber/i, /steel grate/i, /grate is locked/i);
+    });
+
     it("has flavor text for odd stuff", function () {
       _test("kill", /nothing here to attack/i);
       _test("take", /take what/i);
@@ -299,12 +305,6 @@ describe("Adventure 350", function () {
       _test("s", /low n\/s passage/i);
       _test("back", /y2/i);
     });
-
-    it("skips if confused", function () {
-      _test("s", /valley in the forest/i);
-      _test("go back", /end of road/i);
-      _test("go back", /no longer seem to remember/i);
-    });
   });
 
   describe("when stumbling in the dark", function () {
@@ -432,6 +432,26 @@ describe("Adventure 350", function () {
       _test("find dwarf", /right here with you/i, /knife is thrown/i, /misses/i);
 
       _test("throw axe", /killed a little dwarf/i);
+    });
+
+    it("with a murderous dwarf", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("take food");
+      _test("on lamp", /lamp is now on/i);
+      _test("plugh", /y2/i);
+
+      // Wait until a dwarf shows up:
+      for (var i=0; i<20; i++) {
+        _test("say waiting " + i, /waiting/i);
+      }
+      _test("say last wait", /last wait/i, /little dwarf/i, /threw a little axe/i);
+      _test("take axe", /ok/i);
+      _test("w", /little dwarf/, /overlooking a huge pit/i);
+      _test("e", /little dwarf/, /blocks your way/i);
+      _test("e", /little dwarf/, /y2/i);
+      _test("e", /little dwarf/, /jumble of rock/i);
+      _test("w", /little dwarf/, /no way/i, /gets you/i);
     });
 
     it("with the dragon", function () {
