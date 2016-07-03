@@ -798,6 +798,58 @@ describe("Adventure 350", function () {
         _test("w", /giant room/i, /eggs/i);
       });
     });
+
+
+    describe("with the emerald", function () {
+      beforeEach(function () {
+        _test("building", /inside a building/i);
+        _test("take lamp", /ok/i);
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i, /y2/i);
+        _test("s", /low n\/s passage/i);
+        _test("down", /dirty broken passage/i);
+        _test("west", /dusty rocks/i);
+        _test("down", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("w", /swiss cheese/i);
+        _test("nw", /back in the main passage/i);
+        _test("nw", /back in the main passage/i);
+        _test("nw", /back in the main passage/i);
+        _test("nw", /oriental room/i);
+        _test("n", /wide path/i);
+        _test("w", /alcove/i, /tight squeeze/i);
+      });
+
+      it("can't get through with things", function () {
+        _test("east", /won't fit through/i);
+      });
+
+      it("can get through with nothing", function () {
+        _test("drop lamp", /ok/i);
+        _test("east", /small chamber/i, /emerald/i);
+      });
+
+      it("can get through with the emerald", function () {
+        _test("drop lamp", /ok/i);
+        _test("east", /small chamber/i, /emerald/i);
+        _test("take emerald", /ok/i);
+        _test("west", /alcove/i, /lamp shining nearby/i);
+      });
+
+      it("stops plover magic", function () {
+        _test("drop lamp", /ok/i);
+        _test("east", /small chamber/i, /emerald/i);
+        _test("take emerald", /ok/i);
+        _test("plover", /emerald here/i);
+      });
+
+      it("doesn't stop plover magic when not held", function () {
+        _test("drop lamp", /ok/i);
+        _test("east", /small chamber/i, /emerald/i);
+        _test("plover", /pitch dark/i, /plugh/i);
+        _test("plover", /plover room/i);
+      });
+    });
   });
 
   describe("opening the grate", function () {
