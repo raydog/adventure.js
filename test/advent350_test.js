@@ -914,7 +914,54 @@ describe("Adventure 350", function () {
     it("can wait til endgame", _upTo(16));
 
     describe("during endgame", function () {
+
       beforeEach(_upTo(16));
+
+      it("can piss off the dwarves", function () {
+        _test("wake dwarves", /wakes up grumpily/i, /all of them get you/i, /call it a day/i, /game over/i, /score: 304/i);
+        assert(game.isDone());
+      });
+
+      it("can break the mirror", function () {
+        _test("break mirror", /strike the mirror/i, /all of them get you/i, /call it a day/i, /game over/i, /score: 304/i);
+        assert(game.isDone());
+      });
+
+      it("can be noisy with the bird", function () {
+        _test("sw", /southwest end/i, /grate is locked/i);
+        _test("take bird", /ok/i);
+        _test("drop bird", /astounding flurry/i, /all of them get you/i, /call it a day/i, /game over/i, /score: 304/i);
+        assert(game.isDone());
+      });
+
+      it("can blow your dumb ass up", function () {
+        _test("sw", /southwest end/i, /grate is locked/i);
+        _test("take rod", /ok/i);
+        _test("drop rod", /ok/i);
+        _test("blast", /loud explosion/i, /you are suddenly splashed/i, /call it a day/i, /game over/i, /score: 319/i);
+        assert(game.isDone());
+      });
+
+      it("can release the lava", function () {
+        _test("sw", /southwest end/i, /grate is locked/i);
+        _test("take rod", /ok/i);
+        _test("drop rod", /ok/i);
+        _test("ne", /ne end of repository/i);
+        _test("blast", /loud explosion/i, /molten lava pours/i, /call it a day/i, /game over/i, /score: 324/i);
+        assert(game.isDone());
+      });
+
+      it("can skip the oyster hint", function () {
+        _test("take oyster", /ok/i, /something written/i);
+        _test("read oyster", /clue/i, /read it anyway/i);
+        _test("n", /ok/i);
+      });
+
+      it("can read the oyster hint", function () {
+        _test("take oyster", /ok/i, /something written/i);
+        _test("read oyster", /clue/i, /read it anyway/i);
+        _test("y", /something strange/i, /new effect/i);
+      });
     });
 
     function _upTo(num) {
