@@ -108,11 +108,16 @@ describe("Adventure 350", function () {
     });
 
     it("has flavor text for odd stuff", function () {
+      _test("abra", /worn-out magic/i);
+      _test("keys abra", /worn-out magic/i);
+      _test("cave cave", /bad grammar/i);
+      _test("keys keys", /bad grammar/i);
+      _test("feed feed", /bad grammar/i);
       _test("kill", /nothing here to attack/i);
       _test("take", /take what/i);
       _test("find cave", /i would try the stream/i);
       _test("calm keys", /no keys here/i);
-      _test("building", /inside a building/i);
+      _test("enter building", /inside a building/i);
       _test("take", /take what/i);
       _test("unlock keys", /can't unlock/i);
       _test("pour keys", /aren't carrying/i);
