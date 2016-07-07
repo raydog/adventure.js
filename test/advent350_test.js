@@ -917,6 +917,7 @@ describe("Adventure 350", function () {
     it("can bring light to the dark room", _upTo(14));
     it("can clean up remaining items", _upTo(15));
     it("can wait til endgame", _upTo(16));
+    it("can win the game", _upTo(17));
 
     describe("during endgame", function () {
 
@@ -1338,6 +1339,15 @@ describe("Adventure 350", function () {
           _test("say c " + i, /c \d+/i);
         }
         _test("say d", /d/i, /now closed/i, /immense room/i, /immense mirror/i);
+      },
+      function () {
+        _test("sw", /southwest end of the repository/i);
+        _test("take rod", /ok/i);
+        _test("ne", /ne end of repository/i);
+        _test("drop rod", /ok/i);
+        _test("sw", /sw end of repository./i);
+        _test("blast", /loud explosion/i, /cheering band of friendly elves/i, /game over/i, /score: 349/i);
+        assert(game.isDone());
       }
     ];
   });
