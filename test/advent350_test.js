@@ -108,7 +108,11 @@ describe("Adventure 350", function () {
     });
 
     it("has flavor text for odd stuff", function () {
+      _test("on", /no source of light/i);
+      _test("off", /no source of light/i);
       _test("abra", /worn-out magic/i);
+      _test("blast", /requires dynamite/i);
+      _test("walk", /where/i);
       _test("keys abra", /worn-out magic/i);
       _test("cave cave", /bad grammar/i);
       _test("keys keys", /bad grammar/i);
@@ -119,6 +123,8 @@ describe("Adventure 350", function () {
       _test("calm keys", /no keys here/i);
       _test("enter building", /inside a building/i);
       _test("take", /take what/i);
+      _test("eat keys", /ridiculous/i);
+      _test("drop keys", /aren't carrying/i);
       _test("unlock keys", /can't unlock/i);
       _test("pour keys", /aren't carrying/i);
       _test("throw keys", /aren't carrying/i);
@@ -282,6 +288,15 @@ describe("Adventure 350", function () {
         _test("drink oil", /don't be ridiculous/i);
       });
 
+      it("can't oil the plant", function () {
+        _test("drink water", /is now empty/i);
+        _test("take oil", /full of oil/i);
+        _test("up", /east end of twopit room/i);
+        _test("west", /west end of the twopit room/i);
+        _test("down", /bottom of the western pit/i);
+        _test("pour", /shakes the oil off its leaves/i);
+      });
+
       it("can't drink oil from ground", function () {
         _test("up", /east end of twopit/i);
         _test("drop bottle", /ok/i);
@@ -388,7 +403,8 @@ describe("Adventure 350", function () {
       _test("w", /splendid chamber/i, /little bird/i);
       _test("take bird", /becomes disturbed/i, /you cannot catch it/i);
       _test("eat bird", /lost my appetite/i);
-      _test("calm bird", /care to explain how/);
+      _test("feed bird", /fjords/i);
+      _test("calm bird", /care to explain how/i);
       _test("kill", /little bird is now dead/i);
     });
 
@@ -923,8 +939,13 @@ describe("Adventure 350", function () {
 
       beforeEach(_upTo(16));
 
-      it("can piss off the dwarves", function () {
+      it("can wake up the dwarves", function () {
         _test("wake dwarves", /wakes up grumpily/i, /all of them get you/i, /call it a day/i, /game over/i, /score: 304/i);
+        assert(game.isDone());
+      });
+
+      it("can piss off the dwarves", function () {
+        _test("kill dwarves", /resulting ruckus/i, /all of them get you/i, /call it a day/i, /game over/i, /score: 304/i);
         assert(game.isDone());
       });
 
@@ -955,6 +976,31 @@ describe("Adventure 350", function () {
         _test("ne", /ne end of repository/i);
         _test("blast", /loud explosion/i, /molten lava pours/i, /call it a day/i, /game over/i, /score: 324/i);
         assert(game.isDone());
+      });
+
+      it("can fail to do things to the oyster", function () {
+        _test("take oyster", /ok/i, /something written/i);
+        _test("open", /don't have anything strong enough/i);
+        _test("kill", /shell is very strong/i);
+      });
+
+      it("can fail to do things to the bird", function () {
+        _test("sw", /southwest end/i, /grate is locked/i);
+        _test("take bird", /ok/i);
+        _test("kill bird", /leave the poor unhappy bird alone/i);
+      });
+
+      it("can fail to do find things", function () {
+        _test("find dwarves", /around here somewhere/i);
+      });
+
+      it("can fail to do things with the snake", function () {
+        _test("sw", /southwest end/i, /grate is locked/i);
+        _test("feed snake", /nothing here it wants to eat/i);
+      });
+
+      it("can fail to read the oyster", function () {
+        _test("read oyster", /don't understand/i);
       });
 
       it("can skip the oyster hint", function () {
@@ -1301,7 +1347,7 @@ describe("Adventure 350", function () {
         _test("w", /dusty rock room/i);
         _test("down", /complex junction/i);
         _test("n", /sedimentary rock/i, /enormous clam/i);
-        _test("open clam", /glistening pearl falls out/i);
+        _test("open", /glistening pearl falls out/i);
         _test("down", /long sloping corridor/i);
         _test("down", /cul-de-sac/i, /glistening pearl/i);
         _test("take pearl", /ok/i);
@@ -1344,7 +1390,7 @@ describe("Adventure 350", function () {
         _test("sw", /southwest end of the repository/i);
         _test("take rod", /ok/i);
         _test("ne", /ne end of repository/i);
-        _test("drop rod", /ok/i);
+        _test("throw rod", /ok/i);
         _test("sw", /sw end of repository./i);
         _test("blast", /loud explosion/i, /cheering band of friendly elves/i, /game over/i, /score: 349/i);
         assert(game.isDone());
