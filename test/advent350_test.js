@@ -905,7 +905,17 @@ describe("Adventure 350", function () {
     it("can free up the door hinges", _upTo(7));
     it("can lose to the pirate again", _upTo(8));
     it("can steal all the treasure back", _upTo(9));
+    it("can go deal with the bear", _upTo(10));
+    it("can get the emerald", _upTo(11));
+    it("can recover the eggs", _upTo(12));
+    it("can bring everything back", _upTo(13));
+    it("can bring light to the dark room", _upTo(14));
+    it("can clean up remaining items", _upTo(15));
+    it("can wait til endgame", _upTo(16));
 
+    describe("during endgame", function () {
+      beforeEach(_upTo(16));
+    });
 
     function _upTo(num) {
       return () => STEPS.slice(0, num).forEach(fn => fn());
@@ -1098,10 +1108,184 @@ describe("Adventure 350", function () {
         _test("xyzzy", /inside building/i);
         _test("drop jewelry", /ok/i);
         _test("drop chest", /ok/i);
-        // _test("drop eggs", /ok/i);
         _test("drop trident", /ok/i);
         _test("drop rug", /ok/i);
+        _test("take keys", /ok/i);
+        _test("take food", /ok/i);
         _test("score", /showing up:\s*2/i, /treasures:\s*98$/i, /getting well in:\s*25$/i, /score:\s*125$/i);
+      },
+      function () {
+        _test("plugh", /pitch dark/i);
+        _test("on", /y2/i);
+        _test("s", /n\/s passage/i);
+        _test("down", /dirty passage/i);
+        _test("w", /dusty rock room/i);
+        _test("down", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("w", /swiss cheese room/i);
+        _test("e", /soft room/i, /velvet pillow/i);
+        _test("take pillow", /ok/i);
+        _test("w", /little dwarf/i, /swiss cheese/i);
+        _test("throw axe", /killed/i, /swiss cheese/i);
+        _test("take axe", /ok/i);
+        _test("nw", /back in the main passage/i);
+        _test("nw", /oriental room/i, /ming vase/i);
+        _test("take vase", /ok/i);
+        _test("w", /large low room/i);
+        _test("sw", /long winding corridor/i);
+        _test("up", /one side of a large deep chasm/i, /pay troll/i, /burly troll/i);
+        _test("throw eggs", /scurries away/i);
+        _test("cross", /far side of the chasm/i, /troll is nowhere/i);
+        _test("ne", /east\/west corridor/i);
+        _test("e", /path forks/i);
+        _test("se", /gently sloping north\/south passage/i);
+        _test("s", /standing at the entrance/i);
+        _test("e", /inside a barren room/i, /ferocious cave bear/i, /locked to the wall/i);
+        _test("throw food", /eagerly wolfs down your food/i);
+        _test("unlock", /now unlocked/i);
+        _test("take bear", /ok/i);
+        _test("take chain", /ok/i);
+        _test("drop keys", /ok/i);
+        _test("inventory", /lantern/i, /pillow/i, /axe/i, /vase/i, /chain/i, /tame bear/i);
+      },
+      function () {
+        _test("w", /tame bear/i, /barren room/i);
+        _test("w", /tame bear/i, /limestone passage/i);
+        _test("n", /tame bear/i, /fork in path/i);
+        _test("ne", /tame bear/i, /walls are quite warm/i);
+        _test("e", /tame bear/i, /chamber filled with large boulders/i, /spices/i);
+        _test("take spices", /ok/i);
+        _test("w", /tame bear/i, /junction with warm walls/i);
+        _test("s", /tame bear/i, /fork in path/i);
+        _test("w", /tame bear/i, /corridor/i);
+        _test("w", /tame bear/i, /ne side of chasm/i, /troll is nowhere/i);
+        _test("cross", /steps out from beneath the bridge/i);
+        _test("throw bear", /bear lumbers toward the troll/i);
+        _test("drop bear", /ok/i);
+        _test("cross", /sw side of chasm/i);
+        _test("sw", /sloping corridor/i);
+        _test("down", /large low room/i);
+        _test("se", /oriental room/i);
+        _test("n", /following a wide path/i);
+        _test("w", /alcove/i);
+        _test("drop lamp", /ok/i);
+        _test("drop spices", /ok/i);
+        _test("drop pillow", /ok/i);
+        _test("drop vase", /on a velvet pillow/i);
+        _test("drop chain", /ok/i);
+        _test("drop axe", /ok/i);
+        _test("e", /eerie green light/i, /emerald/i);
+        _test("take emerald", /ok/i);
+      },
+      function () {
+        _test("w", /alcove/i);
+        _test("take spices", /ok/i);
+        _test("take lamp", /ok/i);
+        _test("take vase", /ok/i);
+        _test("take pillow", /ok/i);
+        _test("take chain", /ok/i);
+        _test("take axe", /ok/i);
+        _test("nw", /misty cavern/i);
+        _test("s", /oriental room/i);
+        _test("se", /swiss cheese/i);
+        _test("drop axe", /ok/i);
+        _test("w", /east end of twopit room/i);
+        _test("w", /west end of twopit room/i);
+        _test("down", /west pit/i);
+        _test("climb", /clamber up the plant/i, /narrow corridor/i);
+        _test("w", /giant room/i);
+        _test("fee");
+        _test("fie");
+        _test("foe");
+        _test("foo", /large nest here/i);
+        _test("take eggs", /ok/i);
+      },
+      function () {
+        _test("s", /narrow corridor/i);
+        _test("e", /west pit/i);
+        _test("up", /west end of twopit/i);
+        _test("w", /slab room/i);
+        _test("up", /secret n\/s canyon/i);
+        _test("s", /secret canyon/i, /dead dragon/i);
+        _test("e", /secret e\/w canyon/i);
+        _test("e", /hall of mt\. king/i);
+        _test("n", /low n\/s passage/i);
+        _test("n", /y2/i);
+        _test("off", /lamp is now off/i);
+        _test("plugh", /inside building/i);
+        _test("drop spices", /ok/i);
+        _test("drop pillow", /ok/i);
+        _test("drop vase", /on a velvet pillow/i);
+        _test("drop chain", /ok/i);
+        _test("drop emerald", /ok/i);
+        _test("drop eggs", /ok/i);
+      },
+      function () {
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i, /y2/i);
+        _test("plover", /plover room/i);
+        _test("ne", /dark-room/i, /stone tablet/i, /pyramid/i);
+        _test("read tablet", /bringing light/i);
+        _test("take pyramid", /ok/i);
+        _test("s", /plover room/i);
+        _test("off", /now off/i);
+        _test("plover", /pitch dark/i);
+        _test("plugh", /inside building/i);
+        _test("drop pyramid", /ok/i);
+        _test("score", /showing up:\s*2/i, /treasures:\s*190$/i, /getting well in:\s*25$/i, /score:\s*217$/i);
+      },
+      function () {
+        _test("take trident", /ok/i);
+        _test("plugh", /pitch dark/i);
+        _test("on", /lamp is now on/i);
+        _test("s", /low n\/s passage/i);
+        _test("s", /hall of mt\. king/i);
+        _test("w", /west side chamber/i, /many coins/i);
+        _test("take coins", /ok/i);
+        _test("e", /hall of mt\. king/i);
+        _test("n", /low n\/s passage/i);
+        _test("down", /dirty passage/i);
+        _test("w", /dusty rock room/i);
+        _test("down", /complex junction/i);
+        _test("n", /sedimentary rock/i, /enormous clam/i);
+        _test("open clam", /glistening pearl falls out/i);
+        _test("down", /long sloping corridor/i);
+        _test("down", /cul-de-sac/i, /glistening pearl/i);
+        _test("take pearl", /ok/i);
+        _test("up", /long sloping corridor/i);
+        _test("up", /shell room/i);
+        _test("s", /complex junction/i);
+        _test("w", /bedquilt/i);
+        _test("w", /swiss cheese/i);
+        _test("w", /east end of twopit/i);
+        _test("w", /west end of twopit/i);
+        _test("w", /slab room/i);
+        _test("up", /secret n\/s canyon/i);
+        _test("s", /secret canyon/i, /dead dragon/i);
+        _test("e", /secret e\/w canyon/i);
+        _test("e", /hall of mt\. king/i);
+        _test("n", /low n\/s passage/i);
+        _test("n", /y2/i);
+        _test("off", /lamp is now off/i);
+        _test("plugh", /inside building/i);
+        _test("inventory", /lantern/i, /coins/i, /trident/i, /pearl/i);
+        _test("drop coins", /ok/i);
+        _test("drop trident", /ok/i);
+        _test("drop pearl", /ok/i);
+        _test("score", /showing up:\s*2/i, /treasures:\s*218$/i, /getting well in:\s*25$/i, /score:\s*245$/i);
+      },
+      function () {
+        var i;
+        _test("plugh", /pitch dark/i);
+        _test("plover", /plover room/i);
+        for (i=0; i<13; i++) {
+          _test("say a " + i, /a \d+/i);
+        }
+        _test("say b", /b/i, /closing soon/i);
+        for (i=0; i<49; i++) {
+          _test("say c " + i, /c \d+/i);
+        }
+        _test("say d", /d/i, /now closed/i, /immense room/i, /immense mirror/i);
       }
     ];
   });
