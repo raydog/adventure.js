@@ -522,6 +522,40 @@ describe("Adventure 350", function () {
       _test("take rug", /ok/);
     });
 
+    it("with the batteries", function () {
+      _test("building", /inside a building/i);
+      _test("take lamp", /ok/i);
+      _test("on", /lamp is now on/i);
+      _test("xyzzy", /debris room/i);
+      _test("e", /cobbles in a low passage/i, /wicker cage/i);
+      _test("take cage", /ok/i);
+      _test("w", /debris room/i);
+      _test("w", /east\/west canyon/i);
+      _test("w", /splendid chamber/i, /little bird/i);
+      _test("take bird", /ok/i);
+      _test("w", /small pit/i);
+      _test("down", /vast hall/i);
+      _test("n", /hall of the mountain king/i, /fierce snake/i);
+      _test("drop bird", /drives the snake away/i);
+      _test("drop cage", /ok/i);
+      _test("w", /west side chamber/i, /many coins/i);
+      _test("take coins", /ok/i);
+      _test("w", /crossover of a high/i);
+      _test("s", /west end of a very long featureless hall/i);
+      _test("go s", /maze of twisty little passages, all different/i);
+      _test("up", /twisty little maze of passages, all different/i);
+      _test("up", /little maze of twisting passages, all different/i);
+      _test("s", /Dead end/i, /vending machine/i);
+      _test("drop coins", /fresh batteries/i);
+      _test("take batteries", /ok/i);
+      // Wait for lamp to degrade
+      for (var i=0; i<276; i++) {
+        _test("say " + i, /okay/i);
+      }
+      _test("say a", /okay/i, /getting dim/, /liberty of replacing/i);
+      _test("look", /batteries have been discarded/i);
+    });
+
     it("with the troll", function () {
       _test("building", /inside a building/i);
       _test("take lamp", /ok/i);
