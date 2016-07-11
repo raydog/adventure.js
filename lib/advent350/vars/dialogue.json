@@ -541,15 +541,14 @@
     ],
     [
       "If you want to end your adventure early, say \"quit\".  To",
-      "suspend you adventure such that you can continue later",
-      "say \"suspend\" (or \"pause\" or \"save\").  To see how well",
-      "you're doing, say \"score\".  To get full credit for a",
-      "treasure, you must have left it safely in the building,",
-      "though you get partial credit just for locating it.",
-      "You lose points for getting killed, or for quitting,",
-      "though the former costs you more.  There are also points",
-      "based on how much (if any) of the cave you've managed to",
-      "explore; in particular, there is a large bonus just for",
+      "save your adventure such that you can continue later",
+      "say \"save\".  To see how well you're doing, say \"score\".",
+      "To get full credit for a treasure, you must have left it",
+      "safely in the building, though you get partial credit just",
+      "for locating it.  You lose points for getting killed, or for",
+      "quitting, though the former costs you more.  There are also",
+      "points based on how much (if any) of the cave you've managed",
+      "to explore; in particular, there is a large bonus just for",
       "getting in (to distinguish the beginners from the rest of",
       "the pack), and there are other ways to determine whether",
       "you've been through some of the more harrowing sections.",
@@ -561,9 +560,7 @@
       "section.  I may occasionally offer hints if you seem to",
       "be having trouble.  If I do, I'll warn you in",
       "advance how much it will affect your score to accept the",
-      "hints.  Finally, to save paper, you may specify \"brief\",",
-      "which tells me never to repeat the full description of a place",
-      "unless you explicitly ask me to."
+      "hints."
     ],
     [
       "Do you indeed wish to quit now?"
