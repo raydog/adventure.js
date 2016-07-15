@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 const adv = require('../lib/advent350');
 const gu = require('../lib/advent350/gameUtils');
 const assert = require('assert');
