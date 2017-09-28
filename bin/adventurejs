@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+/* eslint-disable no-console */
+var rl = require('readline');
+var advent = require("../src");
+
+var app = advent.makeState();
+app.advance().forEach(_print);
+
+var _input = rl.createInterface(process.stdin, process.stdout);
+_input.setPrompt('> ');
+_input.prompt();
+
+_input.on('line', (l) => {
+
+  app.advance(l).forEach(_print);
+
+  if (app.isDone()) {
+    process.exit(0);
+  }
+
+  _input.prompt();
+});
+
+function _print(line) {
+  console.log(line);
+}
