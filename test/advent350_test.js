@@ -1,5 +1,5 @@
-const adv = require('../lib/advent350');
-const gu = require('../lib/advent350/gameUtils');
+const adv = require('../src');
+const gu = require('../src/gameUtils');
 const assert = require('assert');
 
 describe("Adventure 350", function () {
