@@ -1,7 +1,7 @@
 {
   "name": "adventurejs",
   "version": "0.1.0",
-  "description": "",
+  "description": "A javascript port of the 350-point version of the classic Adventure game.",
   "main": "index.js",
   "dependencies": {
     "lodash": "4.17.4",
