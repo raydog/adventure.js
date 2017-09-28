@@ -1,0 +1,21 @@
+{
+  "name": "adventurejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "4.17.4",
+    "mersenne-twister": "1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "4.7.2",
+    "mocha": "3.5.3",
+    "istanbul": "0.4.5"
+  },
+  "scripts": {
+    "coverage": "istanbul cover _mocha -- test",
+    "test": "mocha test"
+  },
+  "author": "Ray Myers",
+  "license": "MIT"
+}
