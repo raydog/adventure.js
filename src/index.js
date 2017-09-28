@@ -40,10 +40,10 @@ const MAXTRS   = 79;   // max # of treasures in cave
 
 
 // API:
-exports.state = state;
+exports.makeState = makeState;
 
 
-function state(obj) {
+function makeState(obj) {
   return new GameState(obj || {});
 }
 
@@ -1237,35 +1237,3 @@ GameState.prototype._bug = function _bug(code) {
   }
   return;
 };
-
-
-// Allow us to execute this file as a program, for testing:
-
-/* istanbul ignore if */
-if (require.main === module) {
-
-  /* eslint-disable no-console */
-
-  (function () {
-    var rl = require('readline');
-
-    gu.reseed(123456);
-
-    var app = new GameState();
-    app.advance().forEach(line => console.log(line));
-
-    var _input = rl.createInterface(process.stdin, process.stdout);
-    _input.setPrompt('> ');
-    _input.prompt();
-    _input.on('line', (l) => {
-
-      app.advance(l).forEach(line => console.log(line));
-
-      if (app.isDone()) {
-        process.exit(0);
-      }
-
-      _input.prompt();
-    });
-  })();
-}
