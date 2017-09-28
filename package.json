@@ -1,8 +1,11 @@
 {
   "name": "adventurejs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A javascript port of the 350-point version of the classic Adventure game.",
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "adventurejs": "./bin/adventurejs"
+  },
   "dependencies": {
     "lodash": "4.17.4",
     "mersenne-twister": "1.1.0"
