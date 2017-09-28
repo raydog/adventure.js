@@ -7,7 +7,7 @@ describe("Adventure 350", function () {
 
   beforeEach(() => gu.reseed(123456));
   beforeEach(function () {
-    game = adv.state();
+    game = adv.makeState();
   });
 
   it("rejects bad states", function () {
