@@ -1,10 +1,15 @@
 {
   "name": "adventurejs",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A javascript port of the 350-point version of the classic Adventure game.",
   "main": "src/index.js",
   "keywords": [
-    "game", "adventure", "advent", "advent350", "text-based", "xyzzy"
+    "game",
+    "adventure",
+    "advent",
+    "advent350",
+    "text-based",
+    "xyzzy"
   ],
   "bin": {
     "adventurejs": "./bin/adventurejs"
