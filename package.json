@@ -11,12 +11,14 @@
     "mersenne-twister": "1.1.0"
   },
   "devDependencies": {
+    "coveralls": "3.0.0",
     "eslint": "4.7.2",
     "mocha": "3.5.3",
     "istanbul": "0.4.5"
   },
   "scripts": {
     "coverage": "istanbul cover _mocha -- test",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- test && cat ./coverage/lcov.info | coveralls",
     "test": "mocha test"
   },
   "author": "Ray Myers",
