@@ -1,6 +1,6 @@
 # adventure.js
 
-[![Build Status](https://travis-ci.org/raydog/adventure.js.svg?branch=master)](https://travis-ci.org/raydog/adventure.js) [![Coverage Status](https://coveralls.io/repos/github/raydog/adventure.js/badge.svg?branch=master)](https://coveralls.io/github/raydog/adventure.js?branch=master) [![NPM Version](https://img.shields.io/npm/v/adventure.js.svg)](https://www.npmjs.com/package/adventure.js)
+[![Build Status](https://travis-ci.org/raydog/adventure.js.svg?branch=master)](https://travis-ci.org/raydog/adventure.js) [![Coverage Status](https://coveralls.io/repos/github/raydog/adventure.js/badge.svg?branch=master)](https://coveralls.io/github/raydog/adventure.js?branch=master) [![NPM Version](https://img.shields.io/npm/v/adventurejs.svg)](https://www.npmjs.com/package/adventurejs)
 
 A javascript port of the 350-point version of the classic Adventure game. I originally wrote this code as part of a Slackbot, where people could play the game by PM-ing the bot. I broke the code out of the original project so it could be reused and, well, here we are.
 
