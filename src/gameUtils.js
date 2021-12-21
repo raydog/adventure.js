@@ -14,11 +14,9 @@ const obj = DEF.obj;
 const MAXOBJ   = 100;  // max # of objects in cave
 const DWARFMAX = 7;    // max # of nasty dwarves
 
-// Create new Mersenne-Twister object for random values, and seed it
-// by default with 4 bytes pulled from Node's crypto lib:
-const crypto = require('crypto');
-const seed = crypto.randomBytes(4).readInt32LE(0);
-const gen = new MT(seed);
+// Create new Mersenne-Twister object for random values. This is used over the native RNG, so we can reseed the RNG
+// during tests:
+const gen = new MT();
 
 const roomConst = (s, room, prop) => s.cond[room] & stat[prop];
 const roomFlag = (s, room, prop) => Boolean(roomConst(s, room, prop));
