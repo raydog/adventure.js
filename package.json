@@ -1,6 +1,6 @@
 {
   "name": "adventurejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A javascript port of the 350-point version of the classic Adventure game.",
   "main": "src/index.js",
   "keywords": [
